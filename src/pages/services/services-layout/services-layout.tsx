@@ -1,43 +1,42 @@
-import { Box, Button, Paper, styled, Typography } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import { InlineBadge } from '@shared/ui/inline-badge';
-import { ServiceList } from '@pages/services/service-list';
 import { useGetServices } from '@entities/service';
+import { Box, Paper, styled, Typography } from '@mui/material';
+import { ServiceList } from '@pages/services/service-list';
 import { FullscreenLoader } from '@shared/ui/fullscreen-loader';
+import { InlineBadge } from '@shared/ui/inline-badge';
+
+import { ServiceModal } from '../service-modal';
 
 const ContainerServices = styled(Paper)(({ theme }) => ({
-	padding: '20px 40px',
+	backgroundColor: theme.palette.background.paper,
 	borderRadius: 16,
-	flex: 1,
 	display: 'flex',
+	flex: 1,
 	flexDirection: 'column',
 	gap: theme.spacing(4),
-	backgroundColor: theme.palette.background.paper,
+	padding: '20px 40px',
 }));
 
 const Header = styled(Box)({
-	display: 'flex',
 	alignItems: 'center',
+	display: 'flex',
 	justifyContent: 'space-between',
 });
 
 const TitleBox = styled(Box)({
-	display: 'flex',
 	alignItems: 'center',
+	display: 'flex',
 	gap: 8,
 });
 
-export function ServicesLayout() {
+export const ServicesLayout = () => {
 	const services = useGetServices();
 
 	const servisesCount = services.data?.length;
 
-	console.log(services.data);
-
 	return (
 		<ContainerServices>
 			{/* TODO: Использовать потом эти наработки формы*/}
-			{/*<Paper*/}
+			{/* <Paper*/}
 			{/*	component={'form'}*/}
 			{/*	sx={{*/}
 			{/*		backgroundColor: '#444e83',*/}
@@ -77,32 +76,24 @@ export function ServicesLayout() {
 			{/*	<Button variant='contained' type='submit'>*/}
 			{/*		Add*/}
 			{/*	</Button>*/}
-			{/*</Paper>*/}
+			{/*</Paper> */}
 			<Header>
 				<TitleBox>
 					<Typography
 						component={'h3'}
-						variant={'h5'}
 						sx={{
 							color: 'primary.contrastText',
 						}}
+						variant={'h5'}
 					>
 						Your Services
 					</Typography>
 					<InlineBadge>{servisesCount}</InlineBadge>
 				</TitleBox>
-				<Button
-					variant='contained'
-					color='info'
-					aria-label='add'
-					size='medium'
-					startIcon={<AddIcon />}
-				>
-					Add New Service
-				</Button>
+				<ServiceModal />
 			</Header>
 			{services.isLoading && <FullscreenLoader />}
 			{services.data && <ServiceList services={services.data} />}
 		</ContainerServices>
 	);
-}
+};

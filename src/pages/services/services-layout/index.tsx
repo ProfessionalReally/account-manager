@@ -1,1 +1,1 @@
-export * from './services-layout';
+export { ServicesLayout } from './services-layout';

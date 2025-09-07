@@ -1,3 +1,8 @@
+import type { Service } from '@shared/lib/types/service.ts';
+import type { FC } from 'react';
+
+import DeleteIcon from '@mui/icons-material/Delete';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import {
 	Avatar,
 	Box,
@@ -7,19 +12,15 @@ import {
 	styled,
 	Typography,
 } from '@mui/material';
-
-import ModeEditIcon from '@mui/icons-material/ModeEdit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import type { Service } from '@shared/lib/types/service.ts';
-import type { FC } from 'react';
+import { getRelativeTime } from '@shared/lib/dayjs/get-relative-time/get-relative-time';
 
 const StyledServiceCard = styled(Paper)(({ theme }) => ({
 	background: '#444e83',
-	borderRadius: 12,
-	padding: theme.spacing(2),
+	borderRadius: '0 12px 12px 0',
 	display: 'flex',
 	gap: theme.spacing(2),
 	height: '100%',
+	padding: theme.spacing(2),
 }));
 
 const StyledModeEditIcon = styled(ModeEditIcon)(({ theme }) => ({
@@ -31,27 +32,28 @@ const StyledDeleteIcon = styled(DeleteIcon)(({ theme }) => ({
 }));
 
 const StyledAvatar = styled(Avatar)(() => ({
-	minWidth: 50,
 	height: 50,
+	minWidth: 50,
 }));
 
 const ActionsContainer = styled(Box)(() => ({
-	display: 'flex',
 	alignItems: 'center',
+	display: 'flex',
 	flexDirection: 'column',
 	justifyContent: 'space-between',
 }));
 
 type ServiceCardProps = {
+	color?: string;
 	service: Service;
 };
 
-export const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
-	const { name, description, icon, updatedAt } = service;
+export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
+	const { description, icon, name, updatedAt } = service;
 	return (
-		<Grid size={{ sm: 12, md: 6 }} sx={{ height: 140 }}>
-			<StyledServiceCard>
-				<Box sx={{ display: 'flex', alignItems: 'center' }}>
+		<Grid size={{ md: 6, sm: 12 }} sx={{ height: 140 }}>
+			<StyledServiceCard sx={{ borderLeft: `4px solid ${color}` }}>
+				<Box sx={{ alignItems: 'center', display: 'flex' }}>
 					<StyledAvatar alt='name' src={icon} />
 				</Box>
 				<Box
@@ -60,42 +62,45 @@ export const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
 						flexDirection: 'column',
 						flexGrow: 1,
 						justifyContent: 'space-between',
+						minWidth: 0,
 					}}
 				>
-					{/*TODO: Поправить перенос при переполнении*/}
 					<Typography
-						variant='subtitle1'
-						component='h4'
 						color='info'
+						component='h4'
 						sx={{
 							overflow: 'hidden',
 							textOverflow: 'ellipsis',
 							whiteSpace: 'nowrap',
 						}}
+						variant='subtitle1'
 					>
 						{name}
 					</Typography>
 					<Box sx={{ flex: 1 }}>
 						<Typography
-							variant='body1'
 							component='p'
 							sx={{
 								color: 'primary.contrastText',
 								display: '-webkit-box',
+								overflow: 'hidden',
 								WebkitBoxOrient: 'vertical',
 								WebkitLineClamp: 2,
-								overflow: 'hidden',
 							}}
+							variant='body1'
 						>
 							{description}
 						</Typography>
 					</Box>
 					<Typography
-						variant='body2'
-						component='p'
 						color='textSecondary'
+						component='p'
+						sx={{
+							color: 'primary.contrastText',
+						}}
+						variant='body2'
 					>
-						{updatedAt}
+						{getRelativeTime(updatedAt)}
 					</Typography>
 				</Box>
 				<ActionsContainer>

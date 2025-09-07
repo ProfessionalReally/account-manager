@@ -3,17 +3,17 @@ import { Box, Container, styled } from '@mui/material';
 import { Header } from '@shared/ui/header/header';
 
 const StyledContainer = styled(Container)(({ theme }) => ({
-	padding: theme.spacing(2),
-	paddingTop: 0,
 	display: 'flex',
 	flexDirection: 'column',
 	gap: '20px',
+	padding: theme.spacing(2),
+	paddingTop: 0,
 }));
 
 const StyledBox = styled(Box)(({ theme }) => ({
 	background: theme.palette.background.default,
-	minHeight: '100vh',
 	display: 'flex',
+	minHeight: '100vh',
 }));
 
 export function AccountManager() {
