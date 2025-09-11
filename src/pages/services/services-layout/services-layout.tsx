@@ -35,48 +35,6 @@ export const ServicesLayout = () => {
 
 	return (
 		<ContainerServices>
-			{/* TODO: Использовать потом эти наработки формы*/}
-			{/* <Paper*/}
-			{/*	component={'form'}*/}
-			{/*	sx={{*/}
-			{/*		backgroundColor: '#444e83',*/}
-			{/*		maxWidth: '378px',*/}
-			{/*		width: '100%',*/}
-			{/*		padding: '30px 20px',*/}
-			{/*		display: 'flex',*/}
-			{/*		flexDirection: 'column',*/}
-			{/*		gap: 2,*/}
-			{/*	}}*/}
-			{/*>*/}
-			{/*	<Typography*/}
-			{/*		component={'h3'}*/}
-			{/*		variant={'h5'}*/}
-			{/*		sx={{ color: 'primary.contrastText' }}*/}
-			{/*	>*/}
-			{/*		Add New Service*/}
-			{/*	</Typography>*/}
-			{/*	<BaseTextField*/}
-			{/*		placeholder='Website'*/}
-			{/*		beforeInput={<LanguageIcon />}*/}
-			{/*	/>*/}
-			{/*	<BaseTextField*/}
-			{/*		placeholder='Service Name'*/}
-			{/*		beforeInput={<LabelImportantOutlineRoundedIcon />}*/}
-			{/*	/>*/}
-			{/*	<BaseTextField*/}
-			{/*		placeholder='Icon URL'*/}
-			{/*		beforeInput={<ImageRoundedIcon />}*/}
-			{/*	/>*/}
-			{/*	<Combobox*/}
-			{/*		options={[*/}
-			{/*			{ label: 'Option 1', id: '1' },*/}
-			{/*			{ label: 'Option 2', id: '2' },*/}
-			{/*		]}*/}
-			{/*	/>*/}
-			{/*	<Button variant='contained' type='submit'>*/}
-			{/*		Add*/}
-			{/*	</Button>*/}
-			{/*</Paper> */}
 			<Header>
 				<TitleBox>
 					<Typography

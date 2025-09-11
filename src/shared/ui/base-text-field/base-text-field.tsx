@@ -14,34 +14,12 @@ type BaseTextFieldProps = Omit<
 	beforeInput?: React.ReactNode;
 };
 
-// TODO: Исправить стили
 const StyledTextField = styled(TextField)(({ theme }) => ({
-	'&.Mui-disabled': {
-		backgroundColor: theme.palette.action.disabledBackground,
-	},
-	'&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-		borderColor: theme.palette.secondary.main,
-		borderWidth: 2,
-	},
-	'& .MuiInputBase-root': {
+	'& .MuiOutlinedInput-root': {
+		backgroundColor: theme.palette.common.white,
 		borderRadius: 8,
 		paddingLeft: 7,
 	},
-
-	'& .MuiOutlinedInput-notchedOutline': {
-		border: '1px solid #ccc', // базовая рамка
-		transition: 'border-color 0.2s',
-	},
-
-	'&:hover .MuiOutlinedInput-notchedOutline': {
-		borderColor: theme.palette.primary.main,
-	},
-
-	backgroundColor: theme.palette.common.white,
-
-	borderRadius: 8,
-
-	width: '100%',
 }));
 
 export const BaseTextField: React.FC<BaseTextFieldProps> = ({
@@ -52,7 +30,9 @@ export const BaseTextField: React.FC<BaseTextFieldProps> = ({
 	return (
 		<StyledTextField
 			{...props}
+			color='secondary'
 			fullWidth
+			hiddenLabel
 			size='small'
 			slotProps={{
 				...slotProps,
@@ -70,17 +50,6 @@ export const BaseTextField: React.FC<BaseTextFieldProps> = ({
 					),
 				},
 			}}
-			// sx={{
-			// 	...sx,
-			// 	'& .MuiInputBase-root': {
-			// 		paddingLeft: '7px', //
-			// 	},
-			// 	'& .MuiOutlinedInput-notchedOutline': {
-			// 		border: 'none',
-			// 	},
-			// 	backgroundColor: 'common.white',
-			// 	borderRadius: '8px',
-			// }}
 			variant='outlined'
 		/>
 	);

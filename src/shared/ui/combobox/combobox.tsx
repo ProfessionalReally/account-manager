@@ -1,14 +1,11 @@
+import type { OptionType } from '@shared/lib/types/option-types.ts';
+
 import {
 	Autocomplete,
 	type AutocompleteProps,
 	styled,
 	TextField,
 } from '@mui/material';
-
-type OptionType = {
-	label: string;
-	id: string;
-};
 
 type ComboboxProps<T> = Omit<
 	AutocompleteProps<T, false, false, false>,
@@ -19,18 +16,8 @@ type ComboboxProps<T> = Omit<
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
 	'& .MuiOutlinedInput-root': {
+		backgroundColor: theme.palette.common.white,
 		borderRadius: 8,
-		'& fieldset': {
-			borderColor: theme.palette.grey[400],
-			borderWidth: 1.5,
-		},
-		'&:hover fieldset': {
-			borderColor: theme.palette.primary.main,
-		},
-		'&.Mui-focused fieldset': {
-			borderColor: theme.palette.primary.main,
-			borderWidth: 2,
-		},
 	},
 }));
 
@@ -42,10 +29,30 @@ export function Combobox<T>({ options, ...props }: ComboboxProps<T>) {
 			renderInput={(params) => (
 				<StyledTextField
 					{...params}
+					color='secondary'
 					placeholder='Category'
 					size='small'
 				/>
 			)}
+			slotProps={{
+				popper: {
+					sx: {
+						'& .MuiAutocomplete-listbox': {
+							backgroundColor: 'common.white',
+						},
+						'& .MuiAutocomplete-option': {
+							// hover
+							'&:hover': {
+								bgcolor: 'primary.light',
+							},
+							// selected
+							'&[aria-selected="true"]': {
+								bgcolor: 'grey.100',
+							},
+						},
+					},
+				},
+			}}
 		/>
 	);
 }

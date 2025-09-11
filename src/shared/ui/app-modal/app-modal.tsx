@@ -3,15 +3,16 @@ import {
 	Box,
 	Button,
 	type ButtonProps,
-	Divider,
 	IconButton,
 	Modal,
 	type ModalProps,
 	styled,
 } from '@mui/material';
+import * as React from 'react';
 import { type FC } from 'react';
 
 import { useModal } from './use-modal';
+
 type AppModalProps = Omit<ModalProps, 'children' | 'onClose' | 'open'> & {
 	body: React.ReactNode;
 	footer?: React.ReactNode;
