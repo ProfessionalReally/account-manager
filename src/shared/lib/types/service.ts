@@ -1,9 +1,11 @@
 export type Service = {
-	id: string;
-	name: string;
+	categoryId: string;
 	description?: string;
 	icon?: string;
-	url: string;
-	categoryId: string;
+	id: string;
+	name: string;
 	updatedAt?: string;
+	url: string;
 };
+
+export type ServiceFormData = Omit<Service, 'id' | 'updatedAt'>;

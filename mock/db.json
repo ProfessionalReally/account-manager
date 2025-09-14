@@ -1,296 +1,312 @@
 {
-	"service": [
-		{
-			"id": "1",
-			"name": "Gmail",
-			"description": "Google email service for personal and business use.",
-			"icon": "https://camo.githubusercontent.com/9e521c86648daf3b6e1147eb7c337007ecafad5111e878e18d96fe5e67ef2023/68747470733a2f2f6c6f676f732d776f726c642e6e65742f77702d636f6e74656e742f75706c6f6164732f323032302f31312f476d61696c2d4c6f676f2e706e67",
-			"url": "https://mail.google.com",
-			"categoryId": "1",
-			"updatedAt": "2025-09-01T10:15:00Z"
-		},
-		{
-			"id": "2",
-			"name": "Outlook",
-			"description": "Microsoft's email and calendar platform.",
-			"icon": "https://i.pinimg.com/originals/7d/ef/05/7def051fc9a0d25bf0da0e19f3c415ff.png",
-			"url": "https://outlook.live.com",
-			"categoryId": "1",
-			"updatedAt": "2025-09-03T14:22:00Z"
-		},
-		{
-			"id": "3",
-			"name": "X",
-			"description": "Social networking platform for connecting with friends.",
-			"icon": "https://i.pinimg.com/originals/2f/b9/09/2fb909b74a854f0715e64dda5825990d.jpg",
-			"url": "https://x.com/",
-			"categoryId": "2",
-			"updatedAt": "2025-08-28T19:40:00Z"
-		},
-		{
-			"id": "4",
-			"name": "Instagram",
-			"description": "Photo and video sharing social network.",
-			"icon": "https://universe-soft.ru/upload/phoenix/230/9ep8irlfima5ngno42efjj2ehdsme3ij.png",
-			"url": "https://www.instagram.com",
-			"categoryId": "2",
-			"updatedAt": "2025-09-05T08:05:00Z"
-		},
-		{
-			"id": "5",
-			"name": "Telegram",
-			"description": "Cloud-based instant messaging app with privacy focus.",
-			"icon": "https://static34.tgcnt.ru/posts/_0/ce/ce563528c3fafd881e5535fb79233f1c.jpg",
-			"url": "https://web.telegram.org",
-			"categoryId": "3",
-			"updatedAt": "2025-09-02T12:00:00Z"
-		},
-		{
-			"id": "6",
-			"name": "WhatsApp",
-			"description": "Cross-platform messaging and VoIP service.",
-			"icon": "https://spbrose.ru/filestore/uploaded/gas-kvas-com-p-logotip-vatsap-dlya-vstavki-na-prozrachnom-36.jpg",
-			"url": "https://www.whatsapp.com",
-			"categoryId": "3",
-			"updatedAt": "2025-09-04T16:10:00Z"
-		},
-		{
-			"id": "7",
-			"name": "Steam",
-			"description": "Gaming platform and store for PC games.",
-			"icon": "https://i.playground.ru/e/5pl0qm_G5uUv-krzTyC6uQ.png",
-			"url": "https://store.steampowered.com",
-			"categoryId": "4",
-			"updatedAt": "2025-08-30T21:30:00Z"
-		},
-		{
-			"id": "8",
-			"name": "Epic Games",
-			"description": "Game store and launcher for Fortnite and other titles.",
-			"icon": "https://www.svgrepo.com/show/331381/epic-games.svg",
-			"url": "https://www.epicgames.com",
-			"categoryId": "4",
-			"updatedAt": "2025-09-01T09:55:00Z"
-		},
-		{
-			"id": "9",
-			"name": "GitHub",
-			"description": "Platform for version control and collaboration.",
-			"icon": "https://www.startower.fr/images/lj5_act.png",
-			"url": "https://github.com",
-			"categoryId": "5",
-			"updatedAt": "2025-09-05T07:45:00Z"
-		},
-		{
-			"id": "10",
-			"name": "Bitrix",
-			"description": "Project management tool for agile teams.",
-			"icon": "https://fplustech.ru/upload/image/catalog/blog/korporativnui-smartfon-mob-ofis/rXUagvFl_400x400.jpg",
-			"url": "https://www.bitrix24.com",
-			"categoryId": "5",
-			"updatedAt": "2025-09-03T15:20:00Z"
-		},
-		{
-			"id": "11",
-			"name": "Sberbank",
-			"description": "Online payment system supporting transfers and purchases.",
-			"icon": "https://armadakrd.ru/thumb/2/oGyYIOyfenjpHNG0rkVk3A/r/d/01_151.jpg",
-			"url": "https://www.sberbank.ru",
-			"categoryId": "6",
-			"updatedAt": "2025-09-04T11:30:00Z"
-		},
-		{
-			"id": "12",
-			"name": "Bitget",
-			"description": "Cryptocurrency exchange platform.",
-			"icon": "https://academy-public.coinmarketcap.com/srd-optimized-uploads/54075c1ab65e48128ee890aa4c7bb30b.png",
-			"url": "https://www.bitget.com",
-			"categoryId": "6",
-			"updatedAt": "2025-09-02T13:50:00Z"
-		},
-		{
-			"id": "13",
-			"name": "Coursera",
-			"description": "Online learning platform with courses from universities.",
-			"icon": "https://do.ssau.ru/img/imageNews/4507coursera-1.png",
-			"url": "https://www.coursera.org",
-			"categoryId": "7",
-			"updatedAt": "2025-08-31T10:25:00Z"
-		},
-		{
-			"id": "14",
-			"name": "Udemy",
-			"description": "Marketplace for learning and teaching online courses.",
-			"icon": "https://avatars.mds.yandex.net/i?id=db6c902f227cef657f4e22303c2d002a_l-4407454-images-thumbs&n=13",
-			"url": "https://www.udemy.com",
-			"categoryId": "7",
-			"updatedAt": "2023-09-05T06:15:00Z"
-		},
-		{
-			"id": "15",
-			"name": "Amazon",
-			"description": "Global e-commerce platform for shopping online.",
-			"icon": "https://storage.googleapis.com/kaggle-datasets-images/1619941/2663078/c28ceb46376ea7b1a4cf8c2c6f5ff3c0/dataset-card.png?t=2021-09-29-19-02-07?t=2021-09-29-19-02-57?t=2021-09-29-19-04-31?t=2021-09-29-19-05-06",
-			"url": "https://www.amazon.com",
-			"categoryId": "8",
-			"updatedAt": "2025-09-01T18:05:00Z"
-		},
-		{
-			"id": "16",
-			"name": "eBay",
-			"description": "Online auction and shopping website.",
-			"icon": "https://i.ebayimg.com/thumbs/images/g/JjcAAOSwlEFiuTiQ/s-l640.jpg",
-			"url": "https://www.ebay.com",
-			"categoryId": "8",
-			"updatedAt": "2025-08-29T20:00:00Z"
-		},
-		{
-			"id": "17",
-			"name": "Netflix",
-			"description": "Streaming platform for movies and series.",
-			"icon": "https://image.emojisky.com/134/9800134-middle.png",
-			"url": "https://www.netflix.com",
-			"categoryId": "9",
-			"updatedAt": "2025-09-02T22:00:00Z"
-		},
-		{
-			"id": "18",
-			"name": "Spotify",
-			"description": "Music streaming service.",
-			"icon": "https://i.ytimg.com/vi/_b6YkWUVlLA/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBEgcigsMA8=&rs=AOn4CLDmIA95Wkssb8n0uhZl0Opsyii_og",
-			"url": "https://www.spotify.com",
-			"categoryId": "9",
-			"updatedAt": "2025-09-04T17:45:00Z"
-		},
-		{
-			"id": "19",
-			"name": "Google Drive",
-			"description": "Cloud storage and file sharing service.",
-			"icon": "https://bcassetcdn.com/public/blog/wp-content/uploads/2022/09/07185355/Google-Drive-1024x1024.png",
-			"url": "https://drive.google.com",
-			"categoryId": "10",
-			"updatedAt": "2025-09-03T09:00:00Z"
-		},
-		{
-			"id": "20",
-			"name": "Dropbox",
-			"description": "Cloud file hosting service.",
-			"icon": "https://www.practicepanther.com/wp-content/uploads/2016/06/Dropbox-400x400.jpg",
-			"url": "https://www.dropbox.com",
-			"categoryId": "10",
-			"updatedAt": "2025-09-05T12:20:00Z"
-		},
-		{
-			"id": "21",
-			"name": "Strava",
-			"description": "Fitness tracking app for running and cycling.",
-			"icon": "https://www.iconbolt.com/preview/facebook/darkwing-free-social/strava.svg",
-			"url": "https://www.strava.com",
-			"categoryId": "11",
-			"updatedAt": "2025-09-01T07:30:00Z"
-		},
-		{
-			"id": "22",
-			"name": "MyFitnessPal",
-			"description": "Health app for tracking diet and exercise.",
-			"icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/59/b9/d7/59b9d727-4526-8f58-8174-451cda757bae/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/1200x630wa.png",
-			"url": "https://www.myfitnesspal.com",
-			"categoryId": "11",
-			"updatedAt": "2025-08-31T14:10:00Z"
-		},
-		{
-			"id": "23",
-			"name": "Booking.com",
-			"description": "Travel booking platform for hotels and flights.",
-			"icon": "https://cdn-1.webcatalog.io/catalog/bookingcom/bookingcom-social-preview.png?v=1714773441297",
-			"url": "https://www.booking.com",
-			"categoryId": "12",
-			"updatedAt": "2025-09-03T20:15:00Z"
-		},
-		{
-			"id": "24",
-			"name": "Airbnb",
-			"description": "Marketplace for vacation rentals and homestays.",
-			"icon": "https://e7.pngegg.com/pngimages/100/817/png-clipart-airbnb-logo-travel-social-network-trademark-accommodation.png",
-			"url": "https://www.airbnb.com",
-			"categoryId": "12",
-			"updatedAt": "2025-09-02T16:40:00Z"
-		},
-		{
-			"id": "25",
-			"name": "Custom Service",
-			"description": "User-defined service that does not fit in other categories.",
-			"icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Emoji_u1f6c3.svg/640px-Emoji_u1f6c3.svg.png",
-			"url": "#",
-			"categoryId": "13",
-			"updatedAt": "2025-09-05T09:30:00Z"
-		}
-	],
-	"category": [
-		{
-			"id": "1",
-			"name": "Email",
-			"color": "#4285F4"
-		},
-		{
-			"id": "2",
-			"name": "Social Media",
-			"color": "#E1306C"
-		},
-		{
-			"id": "3",
-			"name": "Messengers",
-			"color": "#25D366"
-		},
-		{
-			"id": "4",
-			"name": "Games",
-			"color": "#9146FF"
-		},
-		{
-			"id": "5",
-			"name": "Work",
-			"color": "#FF9900"
-		},
-		{
-			"id": "6",
-			"name": "Finance",
-			"color": "#0F9D58"
-		},
-		{
-			"id": "7",
-			"name": "Education",
-			"color": "#F4B400"
-		},
-		{
-			"id": "8",
-			"name": "Shopping",
-			"color": "#FF5722"
-		},
-		{
-			"id": "9",
-			"name": "Entertainment",
-			"color": "#9C27B0"
-		},
-		{
-			"id": "10",
-			"name": "Services",
-			"color": "#607D8B"
-		},
-		{
-			"id": "11",
-			"name": "Health",
-			"color": "#E91E63"
-		},
-		{
-			"id": "12",
-			"name": "Travel",
-			"color": "#3F51B5"
-		},
-		{
-			"id": "13",
-			"name": "Other",
-			"color": "#9E9E9E"
-		}
-	]
+  "service": [
+    {
+      "id": "1",
+      "name": "Gmail",
+      "description": "Google email service for personal and business use.",
+      "icon": "https://camo.githubusercontent.com/9e521c86648daf3b6e1147eb7c337007ecafad5111e878e18d96fe5e67ef2023/68747470733a2f2f6c6f676f732d776f726c642e6e65742f77702d636f6e74656e742f75706c6f6164732f323032302f31312f476d61696c2d4c6f676f2e706e67",
+      "url": "https://mail.google.com",
+      "categoryId": "1",
+      "updatedAt": "2025-09-01T10:15:00Z"
+    },
+    {
+      "id": "2",
+      "name": "Outlook",
+      "description": "Microsoft's email and calendar platform.",
+      "icon": "https://i.pinimg.com/originals/7d/ef/05/7def051fc9a0d25bf0da0e19f3c415ff.png",
+      "url": "https://outlook.live.com",
+      "categoryId": "1",
+      "updatedAt": "2025-09-03T14:22:00Z"
+    },
+    {
+      "id": "3",
+      "name": "X",
+      "description": "Social networking platform for connecting with friends.",
+      "icon": "https://i.pinimg.com/originals/2f/b9/09/2fb909b74a854f0715e64dda5825990d.jpg",
+      "url": "https://x.com/",
+      "categoryId": "2",
+      "updatedAt": "2025-08-28T19:40:00Z"
+    },
+    {
+      "id": "4",
+      "name": "Instagram",
+      "description": "Photo and video sharing social network.",
+      "icon": "https://universe-soft.ru/upload/phoenix/230/9ep8irlfima5ngno42efjj2ehdsme3ij.png",
+      "url": "https://www.instagram.com",
+      "categoryId": "2",
+      "updatedAt": "2025-09-05T08:05:00Z"
+    },
+    {
+      "id": "5",
+      "name": "Telegram",
+      "description": "Cloud-based instant messaging app with privacy focus.",
+      "icon": "https://static34.tgcnt.ru/posts/_0/ce/ce563528c3fafd881e5535fb79233f1c.jpg",
+      "url": "https://web.telegram.org",
+      "categoryId": "3",
+      "updatedAt": "2025-09-02T12:00:00Z"
+    },
+    {
+      "id": "6",
+      "name": "WhatsApp",
+      "description": "Cross-platform messaging and VoIP service.",
+      "icon": "https://spbrose.ru/filestore/uploaded/gas-kvas-com-p-logotip-vatsap-dlya-vstavki-na-prozrachnom-36.jpg",
+      "url": "https://www.whatsapp.com",
+      "categoryId": "3",
+      "updatedAt": "2025-09-04T16:10:00Z"
+    },
+    {
+      "id": "7",
+      "name": "Steam",
+      "description": "Gaming platform and store for PC games.",
+      "icon": "https://i.playground.ru/e/5pl0qm_G5uUv-krzTyC6uQ.png",
+      "url": "https://store.steampowered.com",
+      "categoryId": "4",
+      "updatedAt": "2025-08-30T21:30:00Z"
+    },
+    {
+      "id": "8",
+      "name": "Epic Games",
+      "description": "Game store and launcher for Fortnite and other titles.",
+      "icon": "https://www.svgrepo.com/show/331381/epic-games.svg",
+      "url": "https://www.epicgames.com",
+      "categoryId": "4",
+      "updatedAt": "2025-09-01T09:55:00Z"
+    },
+    {
+      "id": "9",
+      "name": "GitHub",
+      "description": "Platform for version control and collaboration.",
+      "icon": "https://www.startower.fr/images/lj5_act.png",
+      "url": "https://github.com",
+      "categoryId": "5",
+      "updatedAt": "2025-09-05T07:45:00Z"
+    },
+    {
+      "id": "10",
+      "name": "Bitrix",
+      "description": "Project management tool for agile teams.",
+      "icon": "https://fplustech.ru/upload/image/catalog/blog/korporativnui-smartfon-mob-ofis/rXUagvFl_400x400.jpg",
+      "url": "https://www.bitrix24.com",
+      "categoryId": "5",
+      "updatedAt": "2025-09-03T15:20:00Z"
+    },
+    {
+      "id": "11",
+      "name": "Sberbank",
+      "description": "Online payment system supporting transfers and purchases.",
+      "icon": "https://armadakrd.ru/thumb/2/oGyYIOyfenjpHNG0rkVk3A/r/d/01_151.jpg",
+      "url": "https://www.sberbank.ru",
+      "categoryId": "6",
+      "updatedAt": "2025-09-04T11:30:00Z"
+    },
+    {
+      "id": "12",
+      "name": "Bitget",
+      "description": "Cryptocurrency exchange platform.",
+      "icon": "https://academy-public.coinmarketcap.com/srd-optimized-uploads/54075c1ab65e48128ee890aa4c7bb30b.png",
+      "url": "https://www.bitget.com",
+      "categoryId": "6",
+      "updatedAt": "2025-09-02T13:50:00Z"
+    },
+    {
+      "id": "13",
+      "name": "Coursera",
+      "description": "Online learning platform with courses from universities.",
+      "icon": "https://do.ssau.ru/img/imageNews/4507coursera-1.png",
+      "url": "https://www.coursera.org",
+      "categoryId": "7",
+      "updatedAt": "2025-08-31T10:25:00Z"
+    },
+    {
+      "id": "14",
+      "name": "Udemy",
+      "description": "Marketplace for learning and teaching online courses.",
+      "icon": "https://avatars.mds.yandex.net/i?id=db6c902f227cef657f4e22303c2d002a_l-4407454-images-thumbs&n=13",
+      "url": "https://www.udemy.com",
+      "categoryId": "7",
+      "updatedAt": "2023-09-05T06:15:00Z"
+    },
+    {
+      "id": "15",
+      "name": "Amazon",
+      "description": "Global e-commerce platform for shopping online.",
+      "icon": "https://storage.googleapis.com/kaggle-datasets-images/1619941/2663078/c28ceb46376ea7b1a4cf8c2c6f5ff3c0/dataset-card.png?t=2021-09-29-19-02-07?t=2021-09-29-19-02-57?t=2021-09-29-19-04-31?t=2021-09-29-19-05-06",
+      "url": "https://www.amazon.com",
+      "categoryId": "8",
+      "updatedAt": "2025-09-01T18:05:00Z"
+    },
+    {
+      "id": "16",
+      "name": "eBay",
+      "description": "Online auction and shopping website.",
+      "icon": "https://i.ebayimg.com/thumbs/images/g/JjcAAOSwlEFiuTiQ/s-l640.jpg",
+      "url": "https://www.ebay.com",
+      "categoryId": "8",
+      "updatedAt": "2025-08-29T20:00:00Z"
+    },
+    {
+      "id": "17",
+      "name": "Netflix",
+      "description": "Streaming platform for movies and series.",
+      "icon": "https://image.emojisky.com/134/9800134-middle.png",
+      "url": "https://www.netflix.com",
+      "categoryId": "9",
+      "updatedAt": "2025-09-02T22:00:00Z"
+    },
+    {
+      "id": "18",
+      "name": "Spotify",
+      "description": "Music streaming service.",
+      "icon": "https://i.ytimg.com/vi/_b6YkWUVlLA/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBEgcigsMA8=&rs=AOn4CLDmIA95Wkssb8n0uhZl0Opsyii_og",
+      "url": "https://www.spotify.com",
+      "categoryId": "9",
+      "updatedAt": "2025-09-04T17:45:00Z"
+    },
+    {
+      "id": "19",
+      "name": "Google Drive",
+      "description": "Cloud storage and file sharing service.",
+      "icon": "https://bcassetcdn.com/public/blog/wp-content/uploads/2022/09/07185355/Google-Drive-1024x1024.png",
+      "url": "https://drive.google.com",
+      "categoryId": "10",
+      "updatedAt": "2025-09-03T09:00:00Z"
+    },
+    {
+      "id": "20",
+      "name": "Dropbox",
+      "description": "Cloud file hosting service.",
+      "icon": "https://www.practicepanther.com/wp-content/uploads/2016/06/Dropbox-400x400.jpg",
+      "url": "https://www.dropbox.com",
+      "categoryId": "10",
+      "updatedAt": "2025-09-05T12:20:00Z"
+    },
+    {
+      "id": "21",
+      "name": "Strava",
+      "description": "Fitness tracking app for running and cycling.",
+      "icon": "https://www.iconbolt.com/preview/facebook/darkwing-free-social/strava.svg",
+      "url": "https://www.strava.com",
+      "categoryId": "11",
+      "updatedAt": "2025-09-01T07:30:00Z"
+    },
+    {
+      "id": "22",
+      "name": "MyFitnessPal",
+      "description": "Health app for tracking diet and exercise.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/59/b9/d7/59b9d727-4526-8f58-8174-451cda757bae/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/1200x630wa.png",
+      "url": "https://www.myfitnesspal.com",
+      "categoryId": "11",
+      "updatedAt": "2025-08-31T14:10:00Z"
+    },
+    {
+      "id": "23",
+      "name": "Booking.com",
+      "description": "Travel booking platform for hotels and flights.",
+      "icon": "https://cdn-1.webcatalog.io/catalog/bookingcom/bookingcom-social-preview.png?v=1714773441297",
+      "url": "https://www.booking.com",
+      "categoryId": "12",
+      "updatedAt": "2025-09-03T20:15:00Z"
+    },
+    {
+      "id": "24",
+      "name": "Airbnb",
+      "description": "Marketplace for vacation rentals and homestays.",
+      "icon": "https://e7.pngegg.com/pngimages/100/817/png-clipart-airbnb-logo-travel-social-network-trademark-accommodation.png",
+      "url": "https://www.airbnb.com",
+      "categoryId": "12",
+      "updatedAt": "2025-09-02T16:40:00Z"
+    },
+    {
+      "id": "25",
+      "name": "Custom Service",
+      "description": "User-defined service that does not fit in other categories.",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Emoji_u1f6c3.svg/640px-Emoji_u1f6c3.svg.png",
+      "url": "#",
+      "categoryId": "13",
+      "updatedAt": "2025-09-05T09:30:00Z"
+    },
+    {
+      "id": "304f",
+      "categoryId": "2",
+      "description": "",
+      "icon": "https://yoursticker.ru/wp-content/uploads/2019/02/vk-2.jpg",
+      "name": "VK",
+      "url": "https://vk.com/"
+    },
+    {
+      "id": "768e",
+      "categoryId": "7",
+      "description": "dsadasdasdasdadsadasdasdadas",
+      "icon": "",
+      "name": "dsadsad",
+      "url": "https://forum.codewithmosh.com/"
+    }
+  ],
+  "category": [
+    {
+      "id": "1",
+      "name": "Email",
+      "color": "#4285F4"
+    },
+    {
+      "id": "2",
+      "name": "Social Media",
+      "color": "#E1306C"
+    },
+    {
+      "id": "3",
+      "name": "Messengers",
+      "color": "#25D366"
+    },
+    {
+      "id": "4",
+      "name": "Games",
+      "color": "#9146FF"
+    },
+    {
+      "id": "5",
+      "name": "Work",
+      "color": "#FF9900"
+    },
+    {
+      "id": "6",
+      "name": "Finance",
+      "color": "#0F9D58"
+    },
+    {
+      "id": "7",
+      "name": "Education",
+      "color": "#F4B400"
+    },
+    {
+      "id": "8",
+      "name": "Shopping",
+      "color": "#FF5722"
+    },
+    {
+      "id": "9",
+      "name": "Entertainment",
+      "color": "#9C27B0"
+    },
+    {
+      "id": "10",
+      "name": "Services",
+      "color": "#607D8B"
+    },
+    {
+      "id": "11",
+      "name": "Health",
+      "color": "#E91E63"
+    },
+    {
+      "id": "12",
+      "name": "Travel",
+      "color": "#3F51B5"
+    },
+    {
+      "id": "13",
+      "name": "Other",
+      "color": "#9E9E9E"
+    }
+  ]
 }

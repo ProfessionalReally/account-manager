@@ -1,18 +1,20 @@
-import type { OptionType } from '@shared/lib/types/option-types.ts';
+import type { OptionType } from '@shared/lib/types/option-types';
 
 import {
 	Autocomplete,
 	type AutocompleteProps,
 	styled,
 	TextField,
+	type TextFieldProps,
 } from '@mui/material';
 
-type ComboboxProps<T> = Omit<
-	AutocompleteProps<T, false, false, false>,
+type ComboboxProps = Omit<
+	AutocompleteProps<OptionType, false, false, false>,
 	'renderInput'
-> & {
-	options: OptionType[];
-};
+> &
+	Pick<TextFieldProps, 'error' | 'helperText'> & {
+		options: OptionType[];
+	};
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
 	'& .MuiOutlinedInput-root': {
@@ -21,15 +23,36 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 	},
 }));
 
-export function Combobox<T>({ options, ...props }: ComboboxProps<T>) {
+const emptyOptions: readonly OptionType[] = [{ id: '', label: 'No Data...' }];
+const loadingOptions: readonly OptionType[] = [{ id: '', label: 'Loading...' }];
+
+export function Combobox({
+	error,
+	helperText,
+	loading = false,
+	options,
+	...props
+}: ComboboxProps) {
+	const isEmpty = !options || options.length === 0 || !Array.isArray(options);
+
+	let displayOptions: readonly OptionType[] = options;
+	if (loading) {
+		displayOptions = loadingOptions;
+	} else if (isEmpty) {
+		displayOptions = emptyOptions;
+	}
+
 	return (
 		<Autocomplete
 			{...props}
-			options={options}
+			loading={loading}
+			options={displayOptions}
 			renderInput={(params) => (
 				<StyledTextField
 					{...params}
 					color='secondary'
+					error={error}
+					helperText={helperText}
 					placeholder='Category'
 					size='small'
 				/>
@@ -41,11 +64,9 @@ export function Combobox<T>({ options, ...props }: ComboboxProps<T>) {
 							backgroundColor: 'common.white',
 						},
 						'& .MuiAutocomplete-option': {
-							// hover
 							'&:hover': {
 								bgcolor: 'primary.light',
 							},
-							// selected
 							'&[aria-selected="true"]': {
 								bgcolor: 'grey.100',
 							},
