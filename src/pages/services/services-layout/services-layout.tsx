@@ -1,8 +1,10 @@
 import { useGetServices } from '@entities/service';
-import { Box, Paper, styled, Typography } from '@mui/material';
+import { Box, Button, Paper, styled, Typography } from '@mui/material';
 import { ServiceList } from '@pages/services/service-list';
+import { ADD } from '@shared/config/form-actions/form-actions';
 import { FullscreenLoader } from '@shared/ui/fullscreen-loader';
 import { InlineBadge } from '@shared/ui/inline-badge';
+import { useDialogs } from '@toolpad/core/useDialogs';
 
 import { ServiceModal } from '../service-modal';
 
@@ -30,6 +32,7 @@ const TitleBox = styled(Box)({
 
 export const ServicesLayout = () => {
 	const services = useGetServices();
+	const dialog = useDialogs();
 
 	const servisesCount = services.data?.length;
 
@@ -48,7 +51,15 @@ export const ServicesLayout = () => {
 					</Typography>
 					<InlineBadge>{servisesCount}</InlineBadge>
 				</TitleBox>
-				<ServiceModal />
+				<Button
+					aria-label='add'
+					color='info'
+					onClick={() => dialog.open(ServiceModal, { action: ADD })}
+					size='medium'
+					variant='contained'
+				>
+					Add New Service
+				</Button>
 			</Header>
 			{services.isLoading && <FullscreenLoader />}
 			{services.data && <ServiceList services={services.data} />}

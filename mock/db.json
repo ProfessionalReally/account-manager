@@ -224,22 +224,6 @@
       "url": "#",
       "categoryId": "13",
       "updatedAt": "2025-09-05T09:30:00Z"
-    },
-    {
-      "id": "304f",
-      "categoryId": "2",
-      "description": "",
-      "icon": "https://yoursticker.ru/wp-content/uploads/2019/02/vk-2.jpg",
-      "name": "VK",
-      "url": "https://vk.com/"
-    },
-    {
-      "id": "768e",
-      "categoryId": "7",
-      "description": "dsadasdasdasdadsadasdasdadas",
-      "icon": "",
-      "name": "dsadsad",
-      "url": "https://forum.codewithmosh.com/"
     }
   ],
   "category": [

@@ -1,25 +1,14 @@
 import CloseIcon from '@mui/icons-material/Close';
-import {
-	Box,
-	Button,
-	type ButtonProps,
-	IconButton,
-	Modal,
-	type ModalProps,
-	styled,
-} from '@mui/material';
+import { Box, IconButton, Modal, type ModalProps, styled } from '@mui/material';
 import * as React from 'react';
 import { type FC } from 'react';
 
-import { useModal } from './use-modal';
+import { useModal } from '../../lib/modal-context/use-modal';
 
 type AppModalProps = Omit<ModalProps, 'children' | 'onClose' | 'open'> & {
 	body: React.ReactNode;
 	footer?: React.ReactNode;
 	header?: React.ReactNode;
-	slotProps?: {
-		button?: Omit<ButtonProps, 'onClick'>;
-	};
 };
 
 const ModalContent = styled(Box)(({ theme }) => ({
@@ -65,32 +54,22 @@ export const AppModal: FC<AppModalProps> = ({
 	header,
 	...props
 }) => {
-	const { handleClose, handleOpen, open } = useModal();
+	const { onClose, open } = useModal();
 
 	return (
-		<>
-			<Button
-				aria-label='add'
-				color='info'
-				size='medium'
-				variant='contained'
-				{...props.slotProps?.button}
-				onClick={handleOpen}
-			/>
-			<Modal {...props} onClose={handleClose} open={open}>
-				<ModalContent>
-					{header && (
-						<ModalHeader>
-							{header}
-							<IconButton onClick={handleClose}>
-								<StyledCloseIcon />
-							</IconButton>
-						</ModalHeader>
-					)}
-					{body && <ModalBody>{body}</ModalBody>}
-					{footer && <ModalFooter>{footer}</ModalFooter>}
-				</ModalContent>
-			</Modal>
-		</>
+		<Modal {...props} onClose={() => onClose()} open={open}>
+			<ModalContent>
+				{header && (
+					<ModalHeader>
+						{header}
+						<IconButton onClick={() => onClose()}>
+							<StyledCloseIcon />
+						</IconButton>
+					</ModalHeader>
+				)}
+				<ModalBody>{body}</ModalBody>
+				{footer && <ModalFooter>{footer}</ModalFooter>}
+			</ModalContent>
+		</Modal>
 	);
 };

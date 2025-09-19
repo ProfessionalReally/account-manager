@@ -1,4 +1,4 @@
-import type { ServiceFormData } from '@shared/lib/types/service';
+import type { Service, ServiceFormData } from '@shared/lib/types/service';
 
 import { useGetCategoryOptions } from '@entities/category/api/use-get-category-options';
 import { useCreateService } from '@entities/service/api/use-create-service';
@@ -7,23 +7,22 @@ import ImageRoundedIcon from '@mui/icons-material/ImageRounded';
 import LabelImportantOutlineRoundedIcon from '@mui/icons-material/LabelImportantOutlineRounded';
 import LanguageIcon from '@mui/icons-material/Language';
 import { Button, CircularProgress, Stack } from '@mui/material';
-import { useModal } from '@shared/ui/app-modal';
+import { useModal } from '@shared/lib/modal-context/use-modal';
 import { BaseTextField } from '@shared/ui/base-text-field';
 import { Combobox } from '@shared/ui/combobox';
 import { invariant } from 'es-toolkit';
 import { Controller, useForm } from 'react-hook-form';
 
 import { serviceValidationSchema } from './service-validation-schema';
+import { useInitialValues } from './use-initial-values';
+import { useOnSubmit } from './use-on-submit';
 
-const defaultValues: ServiceFormData = {
-	categoryId: '',
-	description: '',
-	icon: '',
-	name: '',
-	url: '',
-};
+export const ServiceForm = ({ data }: { data?: Service }) => {
+	const { onClose } = useModal();
 
-export const ServiceForm = () => {
+	const onSubmit = useOnSubmit();
+	const defaultValues = useInitialValues(data);
+
 	const {
 		control,
 		formState: { errors },
@@ -34,7 +33,6 @@ export const ServiceForm = () => {
 		resolver: zodResolver(serviceValidationSchema),
 	});
 
-	const { handleClose } = useModal();
 	const categoryOptions = useGetCategoryOptions();
 	const createService = useCreateService();
 
@@ -42,14 +40,6 @@ export const ServiceForm = () => {
 		categoryOptions.data || categoryOptions.isLoading,
 		'Category options is not loaded',
 	);
-
-	const onSubmit = (data: ServiceFormData) => {
-		createService.mutate(data, {
-			onSuccess: () => {
-				handleClose();
-			},
-		});
-	};
 
 	return (
 		<form
@@ -124,7 +114,7 @@ export const ServiceForm = () => {
 				</Button>
 				<Button
 					color='error'
-					onClick={handleClose}
+					onClick={() => onClose()}
 					type='button'
 					variant='contained'
 				>

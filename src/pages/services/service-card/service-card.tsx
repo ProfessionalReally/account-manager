@@ -9,11 +9,17 @@ import {
 	Box,
 	Grid,
 	IconButton,
+	Link,
 	Paper,
 	styled,
 	Typography,
 } from '@mui/material';
+import { EDIT } from '@shared/config/form-actions/form-actions';
 import { getRelativeTime } from '@shared/lib/dayjs/get-relative-time/get-relative-time';
+import { AppDialog } from '@shared/ui/app-dialog';
+import { useDialogs } from '@toolpad/core/useDialogs';
+
+import { ServiceModal } from '../service-modal';
 
 const StyledServiceCard = styled(Paper)(({ theme }) => ({
 	background: '#444e83',
@@ -52,6 +58,8 @@ type ServiceCardProps = {
 export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 	const { description, icon, id, name, updatedAt } = service;
 
+	const dialog = useDialogs();
+
 	const deleteService = useDeleteService();
 
 	const onDelete = () => deleteService.mutate(id);
@@ -81,7 +89,16 @@ export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 						}}
 						variant='subtitle1'
 					>
-						{name}
+						<Link
+							color='inherit'
+							href={service.url}
+							rel='noopener noreferrer'
+							sx={{ display: 'inline-block' }}
+							target='_blank'
+							underline='hover'
+						>
+							{name}
+						</Link>
 					</Typography>
 					<Box sx={{ flex: 1 }}>
 						<Typography
@@ -106,14 +123,26 @@ export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 						}}
 						variant='body2'
 					>
-						{getRelativeTime(updatedAt)}
+						{updatedAt && getRelativeTime(updatedAt)}
 					</Typography>
 				</Box>
 				<ActionsContainer>
-					<IconButton>
+					<IconButton
+						onClick={() =>
+							dialog.open(ServiceModal, { action: EDIT, id })
+						}
+					>
 						<StyledModeEditIcon />
 					</IconButton>
-					<IconButton onClick={onDelete}>
+					<IconButton
+						onClick={async () => {
+							dialog.open(AppDialog, {
+								body: 'Are you sure you want to delete this service?',
+								header: 'Delete service',
+								onClickYes: onDelete,
+							});
+						}}
+					>
 						<StyledDeleteIcon />
 					</IconButton>
 				</ActionsContainer>
