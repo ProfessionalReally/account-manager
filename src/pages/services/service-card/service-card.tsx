@@ -4,6 +4,7 @@ import type { FC } from 'react';
 import { useDeleteService } from '@entities/service/api/use-delete-service';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import {
 	Avatar,
 	Box,
@@ -18,6 +19,7 @@ import { EDIT } from '@shared/config/form-actions/form-actions';
 import { getRelativeTime } from '@shared/lib/dayjs/get-relative-time/get-relative-time';
 import { AppDialog } from '@shared/ui/app-dialog';
 import { useDialogs } from '@toolpad/core/useDialogs';
+import { useNavigate } from 'react-router-dom';
 
 import { ServiceModal } from '../service-modal';
 
@@ -43,6 +45,10 @@ const StyledAvatar = styled(Avatar)(() => ({
 	minWidth: 50,
 }));
 
+const StyledLink = styled(Link)(({ theme }) => ({
+	color: theme.palette.primary.contrastText,
+}));
+
 const ActionsContainer = styled(Box)(() => ({
 	alignItems: 'center',
 	display: 'flex',
@@ -57,6 +63,7 @@ type ServiceCardProps = {
 
 export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 	const { description, icon, id, name, updatedAt } = service;
+	const navigate = useNavigate();
 
 	const dialog = useDialogs();
 
@@ -66,7 +73,18 @@ export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 
 	return (
 		<Grid size={{ md: 6, sm: 12 }} sx={{ height: 140 }}>
-			<StyledServiceCard sx={{ borderLeft: `4px solid ${color}` }}>
+			<StyledServiceCard
+				onClick={(e) => {
+					const target = e.target as HTMLElement;
+
+					if (target.closest('button') || target.closest('a')) {
+						return;
+					}
+
+					navigate(`/services/${id}`);
+				}}
+				sx={{ borderLeft: `4px solid ${color}`, cursor: 'pointer' }}
+			>
 				<Box sx={{ alignItems: 'center', display: 'flex' }}>
 					<StyledAvatar alt='name' src={icon} />
 				</Box>
@@ -79,27 +97,36 @@ export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 						minWidth: 0,
 					}}
 				>
-					<Typography
-						color='info'
-						component='h4'
+					<Box
 						sx={{
-							overflow: 'hidden',
-							textOverflow: 'ellipsis',
-							whiteSpace: 'nowrap',
+							alignItems: 'center',
+							display: 'flex',
+							gap: 2,
 						}}
-						variant='subtitle1'
 					>
-						<Link
-							color='inherit'
+						<Typography
+							color='info'
+							component='h4'
+							sx={{
+								overflow: 'hidden',
+								textOverflow: 'ellipsis',
+								whiteSpace: 'nowrap',
+							}}
+							variant='subtitle1'
+						>
+							{name}
+						</Typography>
+						<StyledLink
 							href={service.url}
 							rel='noopener noreferrer'
 							sx={{ display: 'inline-block' }}
 							target='_blank'
 							underline='hover'
 						>
-							{name}
-						</Link>
-					</Typography>
+							<OpenInNewIcon fontSize='small' />
+						</StyledLink>
+					</Box>
+
 					<Box sx={{ flex: 1 }}>
 						<Typography
 							component='p'

@@ -19,7 +19,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 export function AccountManager() {
 	return (
 		<StyledBox>
-			<StyledContainer maxWidth='xl'>
+			<StyledContainer maxWidth='lg'>
 				<Header />
 				<AppRoutes />
 			</StyledContainer>

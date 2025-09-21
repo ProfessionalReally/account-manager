@@ -1,35 +1,35 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { ROUTE_PATH } from '@shared/config/router/routes';
 import { ServicesLayout } from '@pages/services/services-layout/services-layout.tsx';
+import { ROUTE_PATH } from '@shared/config/router/routes';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 export function AppRoutes() {
 	return (
 		<Routes>
 			<Route
+				element={<Navigate replace to={ROUTE_PATH.SERVICES} />}
 				path={ROUTE_PATH.MAIN}
-				element={<Navigate to={ROUTE_PATH.SERVICES} replace />}
 			/>
-			<Route path={ROUTE_PATH.SERVICES} element={<ServicesLayout />} />
+			<Route element={<ServicesLayout />} path={ROUTE_PATH.SERVICES} />
 			<Route
-				path={ROUTE_PATH.SERVICE_ID}
 				element={<div>Page Service</div>}
+				path={ROUTE_PATH.SERVICE_ID}
 			/>
 			<Route
-				path={ROUTE_PATH.ACCOUNTS}
 				element={<div>Page Accounts List</div>}
+				path={ROUTE_PATH.ACCOUNTS}
 			/>
 			<Route
-				path={ROUTE_PATH.ACCOUNT_ID}
 				element={<div>Page Account</div>}
+				path={ROUTE_PATH.ACCOUNT_ID}
 			/>
 
-			<Route path={ROUTE_PATH.LOGIN} element={<div>Page Login</div>} />
+			<Route element={<div>Page Login</div>} path={ROUTE_PATH.LOGIN} />
 			<Route
-				path={ROUTE_PATH.REGISTER}
 				element={<div>Page Register</div>}
+				path={ROUTE_PATH.REGISTER}
 			/>
-			<Route path={ROUTE_PATH.NOT_FOUND} element={<div>Page 404</div>} />
-			<Route path={ROUTE_PATH.ALL} element={<div>Page 404</div>} />
+			<Route element={<div>Page 404</div>} path={ROUTE_PATH.NOT_FOUND} />
+			<Route element={<div>Page 404</div>} path={ROUTE_PATH.ALL} />
 		</Routes>
 	);
 }
