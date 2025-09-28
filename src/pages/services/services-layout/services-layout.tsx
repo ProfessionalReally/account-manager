@@ -1,4 +1,4 @@
-import { useGetServices } from '@entities/service';
+import { ServiceHeader, useGetServices } from '@entities/service';
 import { Box, Button, Paper, styled, Typography } from '@mui/material';
 import { ServiceList } from '@pages/services/service-list';
 import { ADD } from '@shared/config/form-actions/form-actions';
@@ -18,51 +18,24 @@ const ContainerServices = styled(Paper)(({ theme }) => ({
 	padding: '20px 40px',
 }));
 
-const Header = styled(Box)({
-	alignItems: 'center',
-	display: 'flex',
-	justifyContent: 'space-between',
-});
-
-const TitleBox = styled(Box)({
-	alignItems: 'center',
-	display: 'flex',
-	gap: 8,
-});
-
-export const ServicesLayout = () => {
+const ServicesLayout = () => {
 	const services = useGetServices();
-	const dialog = useDialogs();
 
 	const servisesCount = services.data?.length;
 
 	return (
 		<ContainerServices>
-			<Header>
-				<TitleBox>
-					<Typography
-						component={'h3'}
-						sx={{
-							color: 'primary.contrastText',
-						}}
-						variant={'h5'}
-					>
-						Your Services
-					</Typography>
-					<InlineBadge>{servisesCount}</InlineBadge>
-				</TitleBox>
-				<Button
-					aria-label='add'
-					color='info'
-					onClick={() => dialog.open(ServiceModal, { action: ADD })}
-					size='medium'
-					variant='contained'
-				>
-					Add New Service
-				</Button>
-			</Header>
+			<ServiceHeader
+				buttonChildren={'Add New Service'}
+				count={servisesCount}
+				modal={ServiceModal}
+				payload={{ action: ADD }}
+				text='Your Services'
+			/>
 			{services.isLoading && <FullscreenLoader />}
 			{services.data && <ServiceList services={services.data} />}
 		</ContainerServices>
 	);
 };
+
+export default ServicesLayout;
