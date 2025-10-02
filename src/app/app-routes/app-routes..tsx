@@ -7,6 +7,10 @@ const ServicesPage = lazy(
 	() => import('@pages/services/services-layout/services-layout'),
 );
 
+const AccountsPage = lazy(
+	() => import('@pages/accounts/accounts-layout/accounts-layout'),
+);
+
 export function AppRoutes() {
 	return (
 		<Suspense fallback={<FullscreenLoader />}>
@@ -16,19 +20,7 @@ export function AppRoutes() {
 					path={ROUTE_PATH.MAIN}
 				/>
 				<Route element={<ServicesPage />} path={ROUTE_PATH.SERVICES} />
-				<Route
-					element={<div>Page Service</div>}
-					path={ROUTE_PATH.SERVICE_ID}
-				/>
-				<Route
-					element={<div>Page Accounts List</div>}
-					path={ROUTE_PATH.ACCOUNTS}
-				/>
-				<Route
-					element={<div>Page Account</div>}
-					path={ROUTE_PATH.ACCOUNT_ID}
-				/>
-
+				<Route element={<AccountsPage />} path={ROUTE_PATH.ACCOUNTS} />
 				<Route
 					element={<div>Page Login</div>}
 					path={ROUTE_PATH.LOGIN}

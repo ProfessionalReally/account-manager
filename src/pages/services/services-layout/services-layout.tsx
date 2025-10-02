@@ -1,10 +1,9 @@
-import { ServiceHeader, useGetServices } from '@entities/service';
-import { Box, Button, Paper, styled, Typography } from '@mui/material';
+import { useGetServices } from '@entities/service';
+import { Paper, styled } from '@mui/material';
 import { ServiceList } from '@pages/services/service-list';
 import { ADD } from '@shared/config/form-actions/form-actions';
 import { FullscreenLoader } from '@shared/ui/fullscreen-loader';
-import { InlineBadge } from '@shared/ui/inline-badge';
-import { useDialogs } from '@toolpad/core/useDialogs';
+import { PaperListHeader } from '@shared/ui/paper-list-header';
 
 import { ServiceModal } from '../service-modal';
 
@@ -25,7 +24,7 @@ const ServicesLayout = () => {
 
 	return (
 		<ContainerServices>
-			<ServiceHeader
+			<PaperListHeader
 				buttonChildren={'Add New Service'}
 				count={servisesCount}
 				modal={ServiceModal}

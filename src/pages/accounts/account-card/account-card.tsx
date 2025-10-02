@@ -57,12 +57,12 @@ const ActionsContainer = styled(Box)(() => ({
 	justifyContent: 'space-between',
 }));
 
-type ServiceCardProps = {
+type AccountCardProps = {
 	color?: string;
 	service: Service;
 };
 
-export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
+export const AccountCard: FC<AccountCardProps> = ({ color, service }) => {
 	const { description, icon, id, name, updatedAt } = service;
 	const navigate = useNavigate();
 

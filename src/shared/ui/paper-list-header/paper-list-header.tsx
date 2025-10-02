@@ -1,4 +1,3 @@
-import type { JSX } from 'react';
 import type React from 'react';
 
 import styled from '@emotion/styled';
@@ -18,7 +17,7 @@ const TitleBox = styled(Box)({
 	gap: 8,
 });
 
-type ServiceHeaderProps = {
+type PaperListHeaderProps = {
 	buttonChildren: React.ReactNode;
 	count?: number;
 	modal: React.ComponentType<any>;
@@ -26,7 +25,7 @@ type ServiceHeaderProps = {
 	text: string;
 };
 
-export const ServiceHeader: React.FC<ServiceHeaderProps> = ({
+export const PaperListHeader: React.FC<PaperListHeaderProps> = ({
 	buttonChildren,
 	count,
 	modal,
