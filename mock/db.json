@@ -302,7 +302,8 @@
 			"phone": "",
 			"password": "encrypted_password_1",
 			"comment": "Main Gmail for personal use",
-			"serviceId": "1"
+			"serviceId": 1,
+			"updatedAt": "2025-01-05T10:32:15.000Z"
 		},
 		{
 			"id": 2,
@@ -312,7 +313,8 @@
 			"phone": "",
 			"password": "encrypted_password_2",
 			"comment": "Corporate Gmail",
-			"serviceId": "1"
+			"serviceId": 1,
+			"updatedAt": "2025-01-10T15:47:00.000Z"
 		},
 		{
 			"id": 3,
@@ -322,7 +324,8 @@
 			"phone": "",
 			"password": "encrypted_password_3",
 			"comment": "Linked to Microsoft Teams",
-			"serviceId": "2"
+			"serviceId": 2,
+			"updatedAt": "2025-01-15T09:21:45.000Z"
 		},
 		{
 			"id": 4,
@@ -332,7 +335,8 @@
 			"phone": "",
 			"password": "encrypted_password_4",
 			"comment": "Twitter for personal posts",
-			"serviceId": "3"
+			"serviceId": 3,
+			"updatedAt": "2025-01-20T12:00:30.000Z"
 		},
 		{
 			"id": 5,
@@ -342,7 +346,8 @@
 			"phone": "",
 			"password": "encrypted_password_5",
 			"comment": "Travel photo account",
-			"serviceId": "4"
+			"serviceId": 4,
+			"updatedAt": "2025-01-25T18:10:05.000Z"
 		},
 		{
 			"id": 6,
@@ -352,7 +357,8 @@
 			"phone": "+79998887766",
 			"password": "encrypted_password_6",
 			"comment": "Used for chatting with friends",
-			"serviceId": "5"
+			"serviceId": 5,
+			"updatedAt": "2025-01-30T20:45:50.000Z"
 		},
 		{
 			"id": 7,
@@ -362,7 +368,8 @@
 			"phone": "+79990001122",
 			"password": "encrypted_password_7",
 			"comment": "For work chats",
-			"serviceId": "6"
+			"serviceId": 6,
+			"updatedAt": "2025-02-04T08:25:12.000Z"
 		},
 		{
 			"id": 8,
@@ -372,7 +379,8 @@
 			"phone": "",
 			"password": "encrypted_password_8",
 			"comment": "Game library",
-			"serviceId": "7"
+			"serviceId": 7,
+			"updatedAt": "2025-02-09T14:55:35.000Z"
 		},
 		{
 			"id": 9,
@@ -382,7 +390,8 @@
 			"phone": "",
 			"password": "encrypted_password_9",
 			"comment": "For Fortnite",
-			"serviceId": "8"
+			"serviceId": 8,
+			"updatedAt": "2025-02-15T11:12:59.000Z"
 		},
 		{
 			"id": 10,
@@ -392,7 +401,8 @@
 			"phone": "",
 			"password": "encrypted_password_10",
 			"comment": "Main account for projects",
-			"serviceId": "9"
+			"serviceId": 9,
+			"updatedAt": "2025-02-20T17:45:21.000Z"
 		},
 		{
 			"id": 11,
@@ -402,7 +412,8 @@
 			"phone": "",
 			"password": "encrypted_password_11",
 			"comment": "Work tasks",
-			"serviceId": "10"
+			"serviceId": 10,
+			"updatedAt": "2025-02-25T13:33:40.000Z"
 		},
 		{
 			"id": 12,
@@ -412,7 +423,8 @@
 			"phone": "+79001234567",
 			"password": "encrypted_password_12",
 			"comment": "Finances",
-			"serviceId": "11"
+			"serviceId": 11,
+			"updatedAt": "2025-03-01T09:05:18.000Z"
 		},
 		{
 			"id": 13,
@@ -422,7 +434,8 @@
 			"phone": "",
 			"password": "encrypted_password_13",
 			"comment": "Main trading account",
-			"serviceId": "12"
+			"serviceId": 12,
+			"updatedAt": "2025-03-06T16:40:42.000Z"
 		},
 		{
 			"id": 14,
@@ -432,7 +445,8 @@
 			"phone": "",
 			"password": "encrypted_password_14",
 			"comment": "University courses",
-			"serviceId": "13"
+			"serviceId": 13,
+			"updatedAt": "2025-03-11T07:20:15.000Z"
 		},
 		{
 			"id": 15,
@@ -442,7 +456,8 @@
 			"phone": "",
 			"password": "encrypted_password_15",
 			"comment": "Programming courses",
-			"serviceId": "14"
+			"serviceId": 14,
+			"updatedAt": "2025-03-16T19:05:33.000Z"
 		},
 		{
 			"id": 16,
@@ -452,7 +467,8 @@
 			"phone": "",
 			"password": "encrypted_password_16",
 			"comment": "Main shopping account",
-			"serviceId": "15"
+			"serviceId": 15,
+			"updatedAt": "2025-03-21T21:30:11.000Z"
 		},
 		{
 			"id": 17,
@@ -462,7 +478,8 @@
 			"phone": "",
 			"password": "encrypted_password_17",
 			"comment": "Selling and buying on auctions",
-			"serviceId": "16"
+			"serviceId": 16,
+			"updatedAt": "2025-03-27T15:50:00.000Z"
 		},
 		{
 			"id": 18,
@@ -472,7 +489,8 @@
 			"phone": "",
 			"password": "encrypted_password_18",
 			"comment": "Family movie subscription",
-			"serviceId": "17"
+			"serviceId": 17,
+			"updatedAt": "2025-04-01T12:10:27.000Z"
 		},
 		{
 			"id": 19,
@@ -482,7 +500,8 @@
 			"phone": "",
 			"password": "encrypted_password_19",
 			"comment": "Music and podcasts",
-			"serviceId": "18"
+			"serviceId": 18,
+			"updatedAt": "2025-04-06T18:00:50.000Z"
 		},
 		{
 			"id": 20,
@@ -492,7 +511,8 @@
 			"phone": "",
 			"password": "encrypted_password_20",
 			"comment": "Files and documents",
-			"serviceId": "19"
+			"serviceId": 19,
+			"updatedAt": "2025-04-11T22:25:44.000Z"
 		},
 		{
 			"id": 21,
@@ -502,7 +522,8 @@
 			"phone": "",
 			"password": "encrypted_password_21",
 			"comment": "File sharing",
-			"serviceId": "20"
+			"serviceId": 20,
+			"updatedAt": "2025-04-16T09:45:13.000Z"
 		},
 		{
 			"id": 22,
@@ -512,7 +533,8 @@
 			"phone": "",
 			"password": "encrypted_password_22",
 			"comment": "Run tracking",
-			"serviceId": "21"
+			"serviceId": 21,
+			"updatedAt": "2025-04-21T14:32:29.000Z"
 		},
 		{
 			"id": 23,
@@ -522,7 +544,8 @@
 			"phone": "",
 			"password": "encrypted_password_23",
 			"comment": "Calorie tracking",
-			"serviceId": "22"
+			"serviceId": 22,
+			"updatedAt": "2025-04-26T11:15:07.000Z"
 		},
 		{
 			"id": 24,
@@ -532,7 +555,8 @@
 			"phone": "",
 			"password": "encrypted_password_24",
 			"comment": "Trips and hotels",
-			"serviceId": "23"
+			"serviceId": 23,
+			"updatedAt": "2025-05-01T08:50:59.000Z"
 		},
 		{
 			"id": 25,
@@ -542,7 +566,8 @@
 			"phone": "",
 			"password": "encrypted_password_25",
 			"comment": "Rental housing",
-			"serviceId": "24"
+			"serviceId": 24,
+			"updatedAt": "2025-05-06T16:40:22.000Z"
 		},
 		{
 			"id": 26,
@@ -552,7 +577,8 @@
 			"phone": "",
 			"password": "encrypted_password_26",
 			"comment": "User-defined service",
-			"serviceId": "25"
+			"serviceId": 25,
+			"updatedAt": "2025-05-10T19:55:31.000Z"
 		}
 	]
 }
