@@ -1,1 +1,1 @@
-export * from './fetch-services';
+export * from './fetch-accounts';

@@ -1,7 +1,6 @@
 export type Account = {
 	comment: string;
 	email: string;
-	icon?: string;
 	id: string;
 	login: string;
 	name: string;

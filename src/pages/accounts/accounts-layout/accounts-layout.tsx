@@ -1,7 +1,11 @@
+import { useGetAccounts } from '@entities/account';
 import { Paper, styled } from '@mui/material';
 import { ADD } from '@shared/config/form-actions/form-actions';
 import { FullscreenLoader } from '@shared/ui/fullscreen-loader';
+import { invariant } from 'es-toolkit';
 import { useParams } from 'react-router-dom';
+
+import { AccountList } from '../account-list';
 
 const ContainerService = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.background.paper,
@@ -16,17 +20,22 @@ const ContainerService = styled(Paper)(({ theme }) => ({
 const AccountsLayout = () => {
 	const { serviceId } = useParams<{ serviceId: string }>();
 
+	invariant(serviceId, 'serviceId is required');
+
+	const accounts = useGetAccounts(serviceId);
+	const accountsCount = accounts.data?.length;
+
 	return (
 		<ContainerService>
-			{/* <ServiceHeader
+			{/* <PaperListHeader
 				buttonChildren={'Add New Account'}
 				count={servisesCount}
 				modal={ServiceModal}
 				payload={{ action: ADD }}
 				text='Your Accounts'
 			/> */}
-			{/* {services.isLoading && <FullscreenLoader />} */}
-			{/* {services.data && <PaperListHeader services={services.data} />} */}
+			{accounts.isLoading && <FullscreenLoader />}
+			{accounts.data && <AccountList accounts={accounts.data} />}
 		</ContainerService>
 	);
 };
