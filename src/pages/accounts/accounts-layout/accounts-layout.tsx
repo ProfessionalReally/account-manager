@@ -1,7 +1,9 @@
 import { useGetAccounts } from '@entities/account';
+import { AccountModal } from '@entities/account/ui/account-modal';
 import { Paper, styled } from '@mui/material';
 import { ADD } from '@shared/config/form-actions/form-actions';
 import { FullscreenLoader } from '@shared/ui/fullscreen-loader';
+import { PaperListHeader } from '@shared/ui/paper-list-header';
 import { invariant } from 'es-toolkit';
 import { useParams } from 'react-router-dom';
 
@@ -27,13 +29,13 @@ const AccountsLayout = () => {
 
 	return (
 		<ContainerService>
-			{/* <PaperListHeader
+			<PaperListHeader
 				buttonChildren={'Add New Account'}
-				count={servisesCount}
-				modal={ServiceModal}
+				count={accountsCount}
+				modal={AccountModal}
 				payload={{ action: ADD }}
 				text='Your Accounts'
-			/> */}
+			/>
 			{accounts.isLoading && <FullscreenLoader />}
 			{accounts.data && <AccountList accounts={accounts.data} />}
 		</ContainerService>

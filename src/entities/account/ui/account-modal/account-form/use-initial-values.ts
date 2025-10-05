@@ -1,4 +1,4 @@
-import type { Service } from '@shared/lib/types/service';
+import type { Account } from '@shared/lib/types/account';
 
 import {
 	EDIT,
@@ -6,28 +6,30 @@ import {
 } from '@shared/config/form-actions/form-actions';
 import { useModal } from '@shared/lib/modal-context/use-modal';
 
-export const useInitialValues = (data?: Service) => {
+export const useInitialValues = (data?: Account) => {
 	const { payload } = useModal<{ action: FormAction; id: string }>();
 
 	const { action } = payload;
 
 	if (action === EDIT && data) {
-		const { categoryId, description, icon, name, url } = data;
+		const { comment, email, login, name, password, phone } = data;
 
 		return {
-			categoryId,
-			description,
-			icon,
+			comment,
+			email,
+			login,
 			name,
-			url,
+			password,
+			phone,
 		};
 	}
 
 	return {
-		categoryId: '',
-		description: '',
-		icon: '',
+		comment: '',
+		email: '',
+		login: '',
 		name: '',
-		url: '',
+		password: '',
+		phone: '',
 	};
 };

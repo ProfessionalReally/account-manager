@@ -12,7 +12,10 @@ type ComboboxProps = Omit<
 	AutocompleteProps<OptionType, false, false, false>,
 	'renderInput'
 > &
-	Pick<TextFieldProps, 'error' | 'helperText'> & {
+	Pick<
+		TextFieldProps,
+		'error' | 'helperText' | 'label' | 'placeholder' | 'required'
+	> & {
 		options: OptionType[];
 	};
 
@@ -29,8 +32,11 @@ const loadingOptions: readonly OptionType[] = [{ id: '', label: 'Loading...' }];
 export function Combobox({
 	error,
 	helperText,
+	label,
 	loading = false,
 	options,
+	placeholder,
+	required,
 	...props
 }: ComboboxProps) {
 	const isEmpty = !options || options.length === 0 || !Array.isArray(options);
@@ -53,7 +59,9 @@ export function Combobox({
 					color='secondary'
 					error={error}
 					helperText={helperText}
-					placeholder='Category'
+					label={label}
+					placeholder={placeholder}
+					required
 					size='small'
 				/>
 			)}

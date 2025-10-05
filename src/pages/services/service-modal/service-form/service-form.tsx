@@ -1,7 +1,6 @@
 import type { Service, ServiceFormData } from '@shared/lib/types/service';
 
 import { useGetCategoryOptions } from '@entities/category/api/use-get-category-options';
-import { useCreateService } from '@entities/service/api/use-create-service';
 import { zodResolver } from '@hookform/resolvers/zod';
 import ImageRoundedIcon from '@mui/icons-material/ImageRounded';
 import LabelImportantOutlineRoundedIcon from '@mui/icons-material/LabelImportantOutlineRounded';
@@ -25,7 +24,7 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 
 	const {
 		control,
-		formState: { errors },
+		formState: { errors, isSubmitting },
 		handleSubmit,
 		register,
 	} = useForm<ServiceFormData>({
@@ -34,7 +33,6 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 	});
 
 	const categoryOptions = useGetCategoryOptions();
-	const createService = useCreateService();
 
 	invariant(
 		categoryOptions.data || categoryOptions.isLoading,
@@ -47,33 +45,39 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 			style={{ display: 'flex', flexDirection: 'column', gap: 16 }}
 		>
 			<BaseTextField
-				beforeInput={<LanguageIcon />}
-				placeholder='Website'
+				afterInput={<LanguageIcon />}
+				label='Website'
+				placeholder='Enter website URL'
 				{...register('url')}
 				error={!!errors.url}
 				helperText={errors.url?.message}
+				required
 			/>
 			<BaseTextField
-				beforeInput={<LabelImportantOutlineRoundedIcon />}
-				placeholder='Service Name'
+				afterInput={<LabelImportantOutlineRoundedIcon />}
+				label='Name'
+				placeholder='Enter service name'
 				{...register('name')}
 				error={!!errors.name}
 				helperText={errors.name?.message}
+				required
 			/>
 			<BaseTextField
+				label='Description'
 				multiline
-				placeholder='Description'
+				placeholder='Enter service description'
 				{...register('description')}
 				error={!!errors.description}
 				helperText={errors.description?.message}
 				rows={4}
 			/>
 			<BaseTextField
-				beforeInput={<ImageRoundedIcon />}
+				afterInput={<ImageRoundedIcon />}
 				{...register('icon')}
 				error={!!errors.icon}
 				helperText={errors.icon?.message}
-				placeholder='Icon URL'
+				label='Icon'
+				placeholder='Enter icon URL'
 			/>
 			<Controller
 				control={control}
@@ -82,11 +86,14 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 					<Combobox
 						error={!!fieldState.error}
 						helperText={fieldState.error?.message}
+						label='Category'
 						loading={categoryOptions.isLoading}
 						onChange={(_, newValue) =>
 							field.onChange(newValue?.id ?? '')
 						}
 						options={categoryOptions.data ?? []}
+						placeholder='Select category'
+						required
 						value={
 							categoryOptions.data?.find(
 								(opt) => opt.id === field.value,
@@ -102,11 +109,11 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 				sx={{ mt: 2 }}
 			>
 				<Button
-					disabled={createService.isPending}
+					disabled={isSubmitting}
 					type='submit'
 					variant='contained'
 				>
-					{createService.isPending ? (
+					{isSubmitting ? (
 						<CircularProgress color='info' size={20} />
 					) : (
 						'Save'

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const serviceValidationSchema = z.object({
+export const accountValidationSchema = z.object({
 	categoryId: z.string().min(1, 'Category is required'),
 	description: z
 		.string()

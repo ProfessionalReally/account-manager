@@ -1,4 +1,4 @@
-import { useGetServiceById } from '@entities/service';
+import { useGetAccountById } from '@entities/account/api/use-get-account-by-id';
 import {
 	EDIT,
 	type FormAction,
@@ -6,7 +6,7 @@ import {
 import { useModal } from '@shared/lib/modal-context/use-modal';
 import { invariant } from 'es-toolkit';
 
-import { ServiceForm } from './service-form';
+import { AccountForm } from './account-form';
 
 export const AccountFormContainer = () => {
 	const { payload } = useModal<{ action: FormAction; id: string }>();
@@ -19,17 +19,17 @@ export const AccountFormContainer = () => {
 		invariant(id, 'id is required');
 	}
 
-	const services = useGetServiceById(id!);
+	const accounts = useGetAccountById(id!);
 
-	if (services.isLoading) {
+	if (accounts.isLoading) {
 		return null;
 	}
 
-	const service = services.data?.[0];
+	const account = accounts.data?.[0];
 
 	if (action === EDIT) {
-		invariant(service, 'Service is not found');
+		invariant(account, 'Account is not found');
 	}
 
-	return <ServiceForm data={service} />;
+	return <AccountForm data={account} />;
 };

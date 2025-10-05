@@ -21,7 +21,7 @@ import { getRelativeTime } from '@shared/lib/dayjs/get-relative-time/get-relativ
 import { AppDialog } from '@shared/ui/app-dialog';
 import { DomLink } from '@shared/ui/dom-link/dom-link';
 import { useDialogs } from '@toolpad/core/useDialogs';
-import { generatePath, Link, useNavigate } from 'react-router-dom';
+import { generatePath } from 'react-router-dom';
 
 import { ServiceModal } from '../service-modal';
 

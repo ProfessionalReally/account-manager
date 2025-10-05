@@ -1,5 +1,4 @@
 import {
-	Divider,
 	InputAdornment,
 	styled,
 	TextField,
@@ -11,19 +10,19 @@ type BaseTextFieldProps = Omit<
 	TextFieldProps,
 	'fullWidth' | 'size' | 'variant'
 > & {
-	beforeInput?: React.ReactNode;
+	afterInput?: React.ReactNode;
 };
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
 	'& .MuiOutlinedInput-root': {
 		backgroundColor: theme.palette.common.white,
 		borderRadius: 8,
-		paddingLeft: 7,
+		// paddingLeft: 7,
 	},
 }));
 
 export const BaseTextField: React.FC<BaseTextFieldProps> = ({
-	beforeInput,
+	afterInput,
 	slotProps,
 	...props
 }) => {
@@ -32,20 +31,14 @@ export const BaseTextField: React.FC<BaseTextFieldProps> = ({
 			{...props}
 			color='secondary'
 			fullWidth
-			hiddenLabel
 			size='small'
 			slotProps={{
 				...slotProps,
 				input: {
 					...slotProps?.input,
-					startAdornment: (
-						<InputAdornment position='start' sx={{ gap: 1 }}>
-							{beforeInput && (
-								<>
-									{beforeInput}
-									<Divider flexItem orientation='vertical' />
-								</>
-							)}
+					endAdornment: afterInput && (
+						<InputAdornment position='start'>
+							{afterInput}
 						</InputAdornment>
 					),
 				},

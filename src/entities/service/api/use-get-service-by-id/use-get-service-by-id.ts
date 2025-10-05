@@ -7,6 +7,6 @@ import { fetchServiceById } from '../fetch-service-by-id';
 export const useGetServiceById = (id: string) => {
 	return useQuery<Service[]>({
 		queryFn: () => fetchServiceById(id),
-		queryKey: ['services', id],
+		queryKey: ['service', id],
 	});
 };
