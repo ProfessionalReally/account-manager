@@ -114,7 +114,6 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 				helperText={errors.description?.message}
 				rows={4}
 			/>
-
 			<Stack
 				direction={'row'}
 				gap={2}

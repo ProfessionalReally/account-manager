@@ -60,6 +60,7 @@ export const AccountCard: FC<AccountCardProps> = ({ account }) => {
 							<Typography
 								component='h2'
 								sx={{
+									overflow: 'hidden',
 									textOverflow: 'ellipsis',
 									whiteSpace: 'nowrap',
 									wordBreak: 'break-word',
@@ -116,6 +117,7 @@ export const AccountCard: FC<AccountCardProps> = ({ account }) => {
 							color='primary.contrastText'
 							component='p'
 							sx={{
+								overflow: 'hidden',
 								textOverflow: 'ellipsis',
 								whiteSpace: 'nowrap',
 								wordBreak: 'break-word',
