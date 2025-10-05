@@ -1,7 +1,6 @@
 import type React from 'react';
 
-import styled from '@emotion/styled';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, styled, Typography } from '@mui/material';
 import { InlineBadge } from '@shared/ui/inline-badge';
 import { useDialogs } from '@toolpad/core/useDialogs';
 

@@ -10,7 +10,7 @@ import {
 	Box,
 	Grid,
 	IconButton,
-	Link,
+	Link as LinkMUI,
 	Paper,
 	styled,
 	Typography,
@@ -19,8 +19,9 @@ import { EDIT } from '@shared/config/form-actions/form-actions';
 import { ROUTE_PATH } from '@shared/config/router/routes';
 import { getRelativeTime } from '@shared/lib/dayjs/get-relative-time/get-relative-time';
 import { AppDialog } from '@shared/ui/app-dialog';
+import { DomLink } from '@shared/ui/dom-link/dom-link';
 import { useDialogs } from '@toolpad/core/useDialogs';
-import { generatePath, useNavigate } from 'react-router-dom';
+import { generatePath, Link, useNavigate } from 'react-router-dom';
 
 import { ServiceModal } from '../service-modal';
 
@@ -46,7 +47,7 @@ const StyledAvatar = styled(Avatar)(() => ({
 	minWidth: 50,
 }));
 
-const StyledLink = styled(Link)(({ theme }) => ({
+const StyledLinkMUI = styled(LinkMUI)(({ theme }) => ({
 	color: theme.palette.primary.contrastText,
 }));
 
@@ -64,7 +65,6 @@ type ServiceCardProps = {
 
 export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 	const { description, icon, id, name, updatedAt } = service;
-	const navigate = useNavigate();
 
 	const dialog = useDialogs();
 
@@ -74,22 +74,7 @@ export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 
 	return (
 		<Grid size={{ md: 6, sm: 12 }} sx={{ height: 140 }}>
-			<StyledServiceCard
-				onClick={(e) => {
-					const target = e.target as HTMLElement;
-
-					if (target.closest('button') || target.closest('a')) {
-						return;
-					}
-
-					navigate(
-						generatePath(ROUTE_PATH.ACCOUNTS, {
-							serviceId: id,
-						}),
-					);
-				}}
-				sx={{ borderLeft: `4px solid ${color}`, cursor: 'pointer' }}
-			>
+			<StyledServiceCard sx={{ borderLeft: `4px solid ${color}` }}>
 				<Box sx={{ alignItems: 'center', display: 'flex' }}>
 					<StyledAvatar alt='name' src={icon} />
 				</Box>
@@ -109,19 +94,25 @@ export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 							gap: 2,
 						}}
 					>
-						<Typography
-							color='info'
-							component='h4'
-							sx={{
-								overflow: 'hidden',
-								textOverflow: 'ellipsis',
-								whiteSpace: 'nowrap',
-							}}
-							variant='subtitle1'
+						<DomLink
+							to={generatePath(ROUTE_PATH.ACCOUNTS, {
+								serviceId: id,
+							})}
 						>
-							{name}
-						</Typography>
-						<StyledLink
+							<Typography
+								color='info'
+								component='h4'
+								sx={{
+									overflow: 'hidden',
+									textOverflow: 'ellipsis',
+									whiteSpace: 'nowrap',
+								}}
+								variant='subtitle1'
+							>
+								{name}
+							</Typography>
+						</DomLink>
+						<StyledLinkMUI
 							href={service.url}
 							rel='noopener noreferrer'
 							sx={{ display: 'inline-block' }}
@@ -129,7 +120,7 @@ export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 							underline='hover'
 						>
 							<OpenInNewIcon fontSize='small' />
-						</StyledLink>
+						</StyledLinkMUI>
 					</Box>
 
 					<Box sx={{ flex: 1 }}>
@@ -148,11 +139,8 @@ export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 						</Typography>
 					</Box>
 					<Typography
-						color='textSecondary'
+						color='primary.contrastText'
 						component='p'
-						sx={{
-							color: 'primary.contrastText',
-						}}
 						variant='body2'
 					>
 						{updatedAt && getRelativeTime(updatedAt)}

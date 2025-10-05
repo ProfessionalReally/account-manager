@@ -1,4 +1,5 @@
 export const ROUTE_PATH = {
+	ACCOUNT_ID: '/services/:serviceId/accounts/:accountId',
 	ACCOUNTS: '/services/:serviceId/accounts',
 	ALL: '*',
 	LOGIN: '/login',

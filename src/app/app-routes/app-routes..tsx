@@ -22,6 +22,10 @@ export function AppRoutes() {
 				<Route element={<ServicesPage />} path={ROUTE_PATH.SERVICES} />
 				<Route element={<AccountsPage />} path={ROUTE_PATH.ACCOUNTS} />
 				<Route
+					element={<div>Page Account</div>}
+					path={ROUTE_PATH.ACCOUNT_ID}
+				/>
+				<Route
 					element={<div>Page Login</div>}
 					path={ROUTE_PATH.LOGIN}
 				/>

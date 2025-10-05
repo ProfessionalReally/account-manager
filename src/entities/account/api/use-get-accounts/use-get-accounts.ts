@@ -4,9 +4,9 @@ import { useQuery } from '@tanstack/react-query';
 
 import { fetchAccounts } from '../fetch-accounts';
 
-export const useGetAccounts = (id: string) => {
+export const useGetAccounts = (serviceId: string) => {
 	return useQuery<Account[]>({
-		queryFn: async () => fetchAccounts(id),
-		queryKey: ['accounts', id],
+		queryFn: async () => fetchAccounts(serviceId),
+		queryKey: ['accounts', serviceId],
 	});
 };

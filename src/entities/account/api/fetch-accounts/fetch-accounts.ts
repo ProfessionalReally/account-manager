@@ -4,9 +4,9 @@ import axios from 'axios';
 
 const baseUrlServer = import.meta.env.VITE_BASE_URL_SERVER;
 
-export const fetchAccounts = async (id: string) => {
+export const fetchAccounts = async (serviceId: string) => {
 	const { data } = await axios.get<Account[]>(`${baseUrlServer}/account`, {
-		params: { id },
+		params: { serviceId },
 	});
 
 	return data;
