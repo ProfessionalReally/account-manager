@@ -1,9 +1,15 @@
 import type { Account, AccountFormData } from '@shared/lib/types/account';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
+import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
+import LoginIcon from '@mui/icons-material/Login';
+import PersonIcon from '@mui/icons-material/Person';
+import SmartphoneRoundedIcon from '@mui/icons-material/SmartphoneRounded';
 import { Button, CircularProgress, Stack } from '@mui/material';
 import { useModal } from '@shared/lib/modal-context/use-modal';
 import { BaseTextField } from '@shared/ui/base-text-field';
+import { PasswordField } from '@shared/ui/password-field';
 import { useForm } from 'react-hook-form';
 
 import { accountValidationSchema } from './account-validation-schema';
@@ -32,6 +38,7 @@ export const AccountForm = ({ data }: { data?: Account }) => {
 			<BaseTextField
 				placeholder='Enter account name'
 				{...register('name')}
+				afterInput={<PersonIcon />}
 				error={!!errors.name}
 				helperText={errors.name?.message}
 				label='Name'
@@ -40,6 +47,7 @@ export const AccountForm = ({ data }: { data?: Account }) => {
 
 			<BaseTextField
 				{...register('login')}
+				afterInput={<LoginIcon />}
 				error={!!errors.login}
 				helperText={errors.login?.message}
 				label='Login'
@@ -48,6 +56,7 @@ export const AccountForm = ({ data }: { data?: Account }) => {
 
 			<BaseTextField
 				{...register('email')}
+				afterInput={<EmailRoundedIcon />}
 				error={!!errors.email}
 				helperText={errors.email?.message}
 				label='Email'
@@ -57,6 +66,7 @@ export const AccountForm = ({ data }: { data?: Account }) => {
 
 			<BaseTextField
 				{...register('phone')}
+				afterInput={<SmartphoneRoundedIcon />}
 				error={!!errors.phone}
 				helperText={errors.phone?.message}
 				label='Phone'
@@ -64,17 +74,18 @@ export const AccountForm = ({ data }: { data?: Account }) => {
 				type='tel'
 			/>
 
-			<BaseTextField
-				{...register('password')}
-				error={!!errors.password}
-				helperText={errors.password?.message}
+			<PasswordField<AccountFormData>
+				errors={errors}
 				label='Password'
+				name='password'
+				placeholder='Enter password'
+				register={register}
 				required
-				type='password'
 			/>
 
 			<BaseTextField
 				{...register('comment')}
+				afterInput={<CommentRoundedIcon />}
 				error={!!errors.comment}
 				helperText={errors.comment?.message}
 				label='Comment'

@@ -2,6 +2,7 @@ import type { Service, ServiceFormData } from '@shared/lib/types/service';
 
 import { useGetCategoryOptions } from '@entities/category/api/use-get-category-options';
 import { zodResolver } from '@hookform/resolvers/zod';
+import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
 import ImageRoundedIcon from '@mui/icons-material/ImageRounded';
 import LabelImportantOutlineRoundedIcon from '@mui/icons-material/LabelImportantOutlineRounded';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -44,41 +45,6 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 			onSubmit={handleSubmit(onSubmit)}
 			style={{ display: 'flex', flexDirection: 'column', gap: 16 }}
 		>
-			<BaseTextField
-				afterInput={<LanguageIcon />}
-				label='Website'
-				placeholder='Enter website URL'
-				{...register('url')}
-				error={!!errors.url}
-				helperText={errors.url?.message}
-				required
-			/>
-			<BaseTextField
-				afterInput={<LabelImportantOutlineRoundedIcon />}
-				label='Name'
-				placeholder='Enter service name'
-				{...register('name')}
-				error={!!errors.name}
-				helperText={errors.name?.message}
-				required
-			/>
-			<BaseTextField
-				label='Description'
-				multiline
-				placeholder='Enter service description'
-				{...register('description')}
-				error={!!errors.description}
-				helperText={errors.description?.message}
-				rows={4}
-			/>
-			<BaseTextField
-				afterInput={<ImageRoundedIcon />}
-				{...register('icon')}
-				error={!!errors.icon}
-				helperText={errors.icon?.message}
-				label='Icon'
-				placeholder='Enter icon URL'
-			/>
 			<Controller
 				control={control}
 				name='categoryId'
@@ -102,6 +68,44 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 					/>
 				)}
 			/>
+			<BaseTextField
+				afterInput={<LanguageIcon />}
+				label='Website'
+				placeholder='Enter website URL'
+				{...register('url')}
+				error={!!errors.url}
+				helperText={errors.url?.message}
+				required
+			/>
+			<BaseTextField
+				afterInput={<LabelImportantOutlineRoundedIcon />}
+				label='Name'
+				placeholder='Enter service name'
+				{...register('name')}
+				error={!!errors.name}
+				helperText={errors.name?.message}
+				required
+			/>
+
+			<BaseTextField
+				afterInput={<ImageRoundedIcon />}
+				{...register('icon')}
+				error={!!errors.icon}
+				helperText={errors.icon?.message}
+				label='Icon'
+				placeholder='Enter icon URL'
+			/>
+			<BaseTextField
+				label='Description'
+				multiline
+				placeholder='Enter service description'
+				{...register('description')}
+				afterInput={<CommentRoundedIcon />}
+				error={!!errors.description}
+				helperText={errors.description?.message}
+				rows={4}
+			/>
+
 			<Stack
 				direction={'row'}
 				gap={2}

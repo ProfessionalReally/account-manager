@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import * as React from 'react';
 
-type BaseTextFieldProps = Omit<
+export type BaseTextFieldProps = Omit<
 	TextFieldProps,
 	'fullWidth' | 'size' | 'variant'
 > & {
