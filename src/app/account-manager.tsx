@@ -1,6 +1,6 @@
 import { AppRoutes } from '@app/app-routes/app-routes..tsx';
 import { Box, Container, styled } from '@mui/material';
-import { Header } from '@shared/ui/header/header';
+import { Header } from '@widgets/header';
 
 const StyledContainer = styled(Container)(({ theme }) => ({
 	display: 'flex',

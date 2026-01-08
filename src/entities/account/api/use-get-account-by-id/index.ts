@@ -1,1 +1,1 @@
-export * from './use-get-account-by-id';
+export { useGetAccountById } from './use-get-account-by-id';

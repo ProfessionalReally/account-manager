@@ -1,1 +1,1 @@
-export * from './api/use-get-category';
+export { useGetCategory } from './api/use-get-category';

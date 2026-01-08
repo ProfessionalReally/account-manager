@@ -1,1 +1,1 @@
-export * from './fullscreen-loader';
+export { FullscreenLoader } from './fullscreen-loader';

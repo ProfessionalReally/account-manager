@@ -1,1 +1,1 @@
-export * from './fetch-services';
+export { fetchServices } from './fetch-services';

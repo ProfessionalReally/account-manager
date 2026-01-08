@@ -1,1 +1,1 @@
-export * from './fetch-category';
+export { fetchCategory } from './fetch-category';

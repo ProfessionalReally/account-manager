@@ -51,7 +51,7 @@ export const PasswordField = <T extends FieldValues>({
 					)}
 				</IconButton>
 			}
-			error={!!errors.password}
+			error={!!fieldError}
 			helperText={message}
 			sx={{
 				'.MuiInputAdornment-root': {

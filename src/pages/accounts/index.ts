@@ -1,1 +1,1 @@
-export * from './accounts-layout';
+export { AccountsLayout } from './ui/accounts-layout';

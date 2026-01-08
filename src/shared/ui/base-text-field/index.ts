@@ -1,1 +1,1 @@
-export * from './base-text-field';
+export { BaseTextField } from './base-text-field';

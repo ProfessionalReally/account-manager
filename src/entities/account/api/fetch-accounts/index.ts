@@ -1,1 +1,1 @@
-export * from './fetch-accounts';
+export { fetchAccounts } from './fetch-accounts';

@@ -7,6 +7,6 @@ export const useGetCategoryOptions = () => {
 	return useQuery({
 		queryFn: fetchCategory,
 		queryKey: ['category'],
-		select: selectOptions,
+		select: (response) => selectOptions(response.data),
 	});
 };

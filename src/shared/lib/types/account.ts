@@ -9,5 +9,3 @@ export type Account = {
 	serviceId: string;
 	updatedAt?: string;
 };
-
-export type AccountFormData = Omit<Account, 'id' | 'serviceId' | 'updatedAt'>;

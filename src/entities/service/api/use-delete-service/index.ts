@@ -1,1 +1,1 @@
-export * from './use-delete-service';
+export { useDeleteService } from './use-delete-service';

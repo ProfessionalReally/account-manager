@@ -1,1 +1,1 @@
-export * from './use-get-services';
+export { useGetServices } from './use-get-services';

@@ -1,1 +1,1 @@
-export * from './use-get-accounts';
+export { useGetAccounts } from './use-get-accounts';

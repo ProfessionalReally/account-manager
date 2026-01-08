@@ -1,1 +1,2 @@
-export * from './account-modal';
+export { AccountModal } from './account-modal';
+

@@ -1,6 +1,5 @@
-import type { Account, AccountFormData } from '@shared/lib/types/account';
+import type { Account } from '@shared/lib/types/account';
 
-import { zodResolver } from '@hookform/resolvers/zod';
 import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import LoginIcon from '@mui/icons-material/Login';
@@ -12,7 +11,9 @@ import { BaseTextField } from '@shared/ui/base-text-field';
 import { PasswordField } from '@shared/ui/password-field';
 import { useForm } from 'react-hook-form';
 
-import { accountValidationSchema } from './account-validation-schema';
+import type { AccountFormData } from './types';
+
+// import { accountValidationSchema } from './account-validation-schema';
 import { useInitialValues } from './use-initial-values';
 // import { useOnSubmit } from './use-on-submit';
 
