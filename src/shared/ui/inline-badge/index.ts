@@ -1,1 +1,1 @@
-export * from './inline-badge';
+export { InlineBadge } from './inline-badge';

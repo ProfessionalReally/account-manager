@@ -1,13 +1,10 @@
+import type { ApiResponse } from '@shared/api/types';
 import type { Service } from '@shared/lib/types/service';
 
-import axios from 'axios';
-
-const baseUrlServer = import.meta.env.VITE_BASE_URL_SERVER;
+import { api } from '@shared/api/axios';
 
 export const fetchServiceById = async (id: string) => {
-	const { data } = await axios.get<Service[]>(`${baseUrlServer}/service`, {
-		params: { id },
-	});
+	const { data } = await api.get<ApiResponse<Service>>(`/services/${id}`);
 
 	return data;
 };

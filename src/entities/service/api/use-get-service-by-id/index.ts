@@ -1,1 +1,1 @@
-export * from './use-get-service-by-id';
+export { useGetServiceById } from './use-get-service-by-id';

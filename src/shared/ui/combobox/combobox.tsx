@@ -12,7 +12,10 @@ type ComboboxProps = Omit<
 	AutocompleteProps<OptionType, false, false, false>,
 	'renderInput'
 > &
-	Pick<TextFieldProps, 'error' | 'helperText'> & {
+	Pick<
+		TextFieldProps,
+		'error' | 'helperText' | 'label' | 'placeholder' | 'required'
+	> & {
 		options: OptionType[];
 	};
 
@@ -23,37 +26,33 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 	},
 }));
 
-const emptyOptions: readonly OptionType[] = [{ id: '', label: 'No Data...' }];
-const loadingOptions: readonly OptionType[] = [{ id: '', label: 'Loading...' }];
-
 export function Combobox({
 	error,
 	helperText,
+	label,
 	loading = false,
 	options,
+	placeholder,
+	required,
 	...props
 }: ComboboxProps) {
-	const isEmpty = !options || options.length === 0 || !Array.isArray(options);
-
-	let displayOptions: readonly OptionType[] = options;
-	if (loading) {
-		displayOptions = loadingOptions;
-	} else if (isEmpty) {
-		displayOptions = emptyOptions;
-	}
-
 	return (
 		<Autocomplete
 			{...props}
 			loading={loading}
-			options={displayOptions}
+			options={options}
+			isOptionEqualToValue={(option, value) => option.id === value.id}
+			noOptionsText='No data'
+			loadingText='Loading...'
 			renderInput={(params) => (
 				<StyledTextField
 					{...params}
 					color='secondary'
 					error={error}
 					helperText={helperText}
-					placeholder='Category'
+					label={label}
+					placeholder={placeholder}
+					required={required}
 					size='small'
 				/>
 			)}

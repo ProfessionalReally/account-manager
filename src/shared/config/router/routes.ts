@@ -1,11 +1,10 @@
 export const ROUTE_PATH = {
-	MAIN: '/',
+	ACCOUNT_ID: '/services/:serviceId/accounts/:accountId',
+	ACCOUNTS: '/services/:serviceId/accounts',
+	ALL: '*',
 	LOGIN: '/login',
+	MAIN: '/',
+	NOT_FOUND: '/404',
 	REGISTER: '/register',
 	SERVICES: '/services',
-	SERVICE_ID: '/services/:serviceId',
-	ACCOUNTS: '/services/:serviceId/accounts',
-	ACCOUNT_ID: '/services/:serviceId/accounts/:accountId',
-	NOT_FOUND: '/404',
-	ALL: '*',
 } as const;

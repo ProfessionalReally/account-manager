@@ -1,1 +1,1 @@
-export * from './use-get-category';
+export { useGetCategory } from './use-get-category';

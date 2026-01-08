@@ -1,11 +1,9 @@
-import type { Service } from '@shared/lib/types/service';
-
-import axios from 'axios';
-
-const baseUrlServer = import.meta.env.VITE_BASE_URL_SERVER;
+import { api } from '@shared/api/axios';
+import type { ApiResponse } from '@shared/api/types';
+import type { Category } from '@shared/lib/types/category';
 
 export const fetchCategory = async () => {
-	const { data } = await axios.get<Service[]>(`${baseUrlServer}/category`);
+	const { data } = await api.get<ApiResponse<Category[]>>('/categories');
 
 	return data;
 };

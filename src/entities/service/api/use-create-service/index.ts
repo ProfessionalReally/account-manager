@@ -1,1 +1,1 @@
-export * from './use-create-service';
+export { useCreateService } from './use-create-service';

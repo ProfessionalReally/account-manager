@@ -1,1 +1,1 @@
-export * from './use-edit-service';
+export { useEditService } from './use-edit-service';

@@ -1,14 +1,7 @@
-import type { ServiceFormData } from '@shared/lib/types/service';
+import { api } from '@shared/api/axios';
 
-import axios from 'axios';
-
-const baseUrlServer = import.meta.env.VITE_BASE_URL_SERVER;
+import type { ServiceFormData } from '../types';
 
 export const editService = async (serviceData: ServiceFormData, id: string) => {
-	const { data } = await axios.patch<ServiceFormData>(
-		`${baseUrlServer}/service/${id}`,
-		serviceData,
-	);
-
-	return data;
+	await api.patch(`/services/${id}`, serviceData);
 };

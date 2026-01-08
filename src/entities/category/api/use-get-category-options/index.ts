@@ -1,1 +1,1 @@
-export * from './use-get-category-options.ts';
+export { useGetCategoryOptions } from './use-get-category-options.ts';

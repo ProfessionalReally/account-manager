@@ -1,1 +1,1 @@
-export * from './app-modal';
+export { AppModal } from './app-modal';

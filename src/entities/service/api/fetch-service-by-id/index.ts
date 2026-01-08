@@ -1,1 +1,1 @@
-export * from './fetch-service-by-id';
+export { fetchServiceById } from './fetch-service-by-id';

@@ -1,5 +1,7 @@
+import type { Category } from './category';
+
 export type Service = {
-	categoryId: string;
+	category: Category;
 	description?: string;
 	icon?: string;
 	id: string;
@@ -7,5 +9,3 @@ export type Service = {
 	updatedAt?: string;
 	url: string;
 };
-
-export type ServiceFormData = Omit<Service, 'id' | 'updatedAt'>;
