@@ -17,7 +17,6 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 	'& .MuiOutlinedInput-root': {
 		backgroundColor: theme.palette.common.white,
 		borderRadius: 8,
-		// paddingLeft: 7,
 	},
 }));
 
@@ -37,7 +36,7 @@ export const BaseTextField: React.FC<BaseTextFieldProps> = ({
 				input: {
 					...slotProps?.input,
 					endAdornment: afterInput && (
-						<InputAdornment position='start'>
+						<InputAdornment position='end'>
 							{afterInput}
 						</InputAdornment>
 					),

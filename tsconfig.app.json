@@ -30,5 +30,5 @@
 			"@shared/*": ["src/shared/*"]
 		}
 	},
-	"include": ["src", "src/shared/lib/types/.ts"]
+	"include": ["src", "src/shared/lib/types/*.ts"]
 }

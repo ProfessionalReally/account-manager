@@ -1,1 +1,1 @@
-export {PasswordField} from './password-field';
+export { PasswordField } from './password-field';
