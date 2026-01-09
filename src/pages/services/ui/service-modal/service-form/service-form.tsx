@@ -114,44 +114,6 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 				helperText={errors.description?.message}
 				rows={4}
 			/>
-			<BaseTextField
-				afterInput={<LanguageIcon />}
-				label='Website'
-				placeholder='Enter website URL'
-				{...register('url')}
-				error={!!errors.url}
-				helperText={errors.url?.message}
-				required
-			/>
-			<BaseTextField
-				afterInput={<LabelImportantOutlineRoundedIcon />}
-				label='Name'
-				placeholder='Enter service name'
-				{...register('name')}
-				error={!!errors.name}
-				helperText={errors.name?.message}
-				required
-			/>
-
-			<BaseTextField
-				afterInput={<ImageRoundedIcon />}
-				{...register('icon')}
-				error={!!errors.icon}
-				helperText={errors.icon?.message}
-				label='Icon'
-				placeholder='Enter icon URL'
-			/>
-			<BaseTextField
-				label='Description'
-				multiline
-				placeholder='Enter service description'
-				{...register('description')}
-				afterInput={<CommentRoundedIcon />}
-				error={!!errors.description}
-				helperText={errors.description?.message}
-				rows={4}
-			/>
-
 			<Stack
 				direction={'row'}
 				gap={2}
