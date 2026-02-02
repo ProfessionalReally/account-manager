@@ -10,6 +10,14 @@ const __dirname = dirname(__filename);
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), '');
 
+	if (!env.VITE_API_PREFIX) {
+		throw new Error('VITE_API_PREFIX is required but not defined');
+	}
+
+	if (!env.VITE_BACKEND_URL) {
+		throw new Error('VITE_BACKEND_URL is required but not defined');
+	}
+
 	return {
 		plugins: [react(), svgr()],
 		resolve: {
@@ -24,7 +32,7 @@ export default defineConfig(({ mode }) => {
 		},
 		server: {
 			proxy: {
-				[env.VITE_API_PREFIX!]: {
+				[env.VITE_API_PREFIX]: {
 					target: env.VITE_BACKEND_URL,
 					changeOrigin: true,
 					secure: false,

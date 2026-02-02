@@ -14,7 +14,7 @@ const LoginPage = lazy(() => import('@app/app-modules/login'));
 
 const RegisterPage = lazy(() => import('@app/app-modules/register'));
 
-const ErrorLayout = lazy(() => import('@app/app-modules/error'));
+const ErrorPage = lazy(() => import('@app/app-modules/error'));
 
 export function AppRoutes() {
 	return (
@@ -50,8 +50,8 @@ export function AppRoutes() {
 				/>
 				<Route element={<LoginPage />} path={ROUTE_PATH.LOGIN} />
 				<Route element={<RegisterPage />} path={ROUTE_PATH.REGISTER} />
-				<Route element={<ErrorLayout />} path={ROUTE_PATH.NOT_FOUND} />
-				<Route element={<ErrorLayout />} path={ROUTE_PATH.ALL} />
+				<Route element={<ErrorPage />} path={ROUTE_PATH.NOT_FOUND} />
+				<Route element={<ErrorPage />} path={ROUTE_PATH.ALL} />
 			</Routes>
 		</Suspense>
 	);
