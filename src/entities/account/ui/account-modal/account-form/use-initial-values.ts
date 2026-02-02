@@ -1,35 +1,21 @@
-import type { Account } from '@shared/lib/types/account';
-
-import {
-	EDIT,
-	type FormAction,
-} from '@shared/config/form-actions/form-actions';
 import { useModal } from '@shared/lib/modal-context/use-modal';
+import type { AccountModalPayload } from '../account-modal';
+import type { AccountFormData } from './types';
 
-export const useInitialValues = (data?: Account) => {
-	const { payload } = useModal<{ action: FormAction; id: string }>();
+export const useInitialValues = (data?: AccountFormData) => {
+	const { payload } = useModal<AccountModalPayload>();
 
-	const { action } = payload;
-
-	if (action === EDIT && data) {
-		const { comment, email, login, name, password, phone } = data;
-
+	if (payload.action === 'EDIT' && data) {
 		return {
-			comment,
-			email,
-			login,
-			name,
-			password,
-			phone,
+			comment: data.comment,
+			username: data.username,
+			password: data.password,
 		};
 	}
 
 	return {
 		comment: '',
-		email: '',
-		login: '',
-		name: '',
+		username: '',
 		password: '',
-		phone: '',
 	};
 };

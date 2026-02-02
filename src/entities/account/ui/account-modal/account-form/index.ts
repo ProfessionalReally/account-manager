@@ -1,1 +1,1 @@
-export * from './account-form-container';
+export { AccountFormContainer } from './account-form-container';

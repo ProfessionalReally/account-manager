@@ -1,11 +1,7 @@
-import type { Account } from '@shared/lib/types/account';
-
+import AutorenewIcon from '@mui/icons-material/Autorenew';
 import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
-import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
-import LoginIcon from '@mui/icons-material/Login';
 import PersonIcon from '@mui/icons-material/Person';
-import SmartphoneRoundedIcon from '@mui/icons-material/SmartphoneRounded';
-import { Button, CircularProgress, Stack } from '@mui/material';
+import { Button, CircularProgress, IconButton, Stack } from '@mui/material';
 import { useModal } from '@shared/lib/modal-context/use-modal';
 import { BaseTextField } from '@shared/ui/base-text-field';
 import { PasswordField } from '@shared/ui/password-field';
@@ -13,66 +9,40 @@ import { useForm } from 'react-hook-form';
 
 import type { AccountFormData } from './types';
 
-// import { accountValidationSchema } from './account-validation-schema';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { generatePassword } from '@shared/lib/generate-password';
+import { accountValidationSchema } from './account-validation-schema';
 import { useInitialValues } from './use-initial-values';
-// import { useOnSubmit } from './use-on-submit';
+import { useOnSubmit } from './use-on-submit';
 
-export const AccountForm = ({ data }: { data?: Account }) => {
+export const AccountForm = ({ data }: { data?: AccountFormData }) => {
 	const { onClose } = useModal();
 
-	// const onSubmit = useOnSubmit();
+	const onSubmit = useOnSubmit();
 	const defaultValues = useInitialValues(data);
-
 	const {
 		formState: { errors, isSubmitting },
-		// handleSubmit,
+		handleSubmit,
 		register,
+		control,
+		setValue,
 	} = useForm<AccountFormData>({
 		defaultValues,
-		// resolver: zodResolver(accountValidationSchema),
+		resolver: zodResolver(accountValidationSchema),
 	});
 	return (
 		<form
-			// onSubmit={handleSubmit(onSubmit)}
+			onSubmit={handleSubmit(onSubmit)}
 			style={{ display: 'flex', flexDirection: 'column', gap: 16 }}
 		>
 			<BaseTextField
-				placeholder='Enter account name'
-				{...register('name')}
+				placeholder='Enter username'
+				{...register('username')}
 				afterInput={<PersonIcon />}
-				error={!!errors.name}
-				helperText={errors.name?.message}
-				label='Name'
+				error={!!errors.username}
+				helperText={errors.username?.message}
+				label='Username'
 				required
-			/>
-
-			<BaseTextField
-				{...register('login')}
-				afterInput={<LoginIcon />}
-				error={!!errors.login}
-				helperText={errors.login?.message}
-				label='Login'
-				placeholder='Enter login'
-			/>
-
-			<BaseTextField
-				{...register('email')}
-				afterInput={<EmailRoundedIcon />}
-				error={!!errors.email}
-				helperText={errors.email?.message}
-				label='Email'
-				placeholder='Enter email'
-				type='email'
-			/>
-
-			<BaseTextField
-				{...register('phone')}
-				afterInput={<SmartphoneRoundedIcon />}
-				error={!!errors.phone}
-				helperText={errors.phone?.message}
-				label='Phone'
-				placeholder='Enter phone'
-				type='tel'
 			/>
 
 			<PasswordField<AccountFormData>
@@ -80,7 +50,23 @@ export const AccountForm = ({ data }: { data?: Account }) => {
 				label='Password'
 				name='password'
 				placeholder='Enter password'
-				register={register}
+				control={control}
+				afterInput={
+					<IconButton
+						aria-label='Generate password'
+						onClick={() => {
+							const password = generatePassword();
+
+							setValue('password', password, {
+								shouldDirty: true,
+								shouldTouch: true,
+								shouldValidate: true,
+							});
+						}}
+					>
+						<AutorenewIcon />
+					</IconButton>
+				}
 				required
 			/>
 

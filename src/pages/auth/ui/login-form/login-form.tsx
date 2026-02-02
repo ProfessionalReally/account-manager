@@ -18,6 +18,7 @@ export const LoginForm = () => {
 		handleSubmit,
 		setError,
 		register,
+		control
 	} = useForm<Auth>({
 		defaultValues,
 		resolver: zodResolver(loginValidationSchema),
@@ -50,7 +51,7 @@ export const LoginForm = () => {
 				label='Password'
 				name='password'
 				placeholder='Enter password'
-				register={register}
+				control={control}
 				required
 			/>
 			<Button

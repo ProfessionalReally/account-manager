@@ -1,7 +1,9 @@
 import type { Account } from '@shared/lib/types/account';
 
+import { useRequireMasterKey } from '@entities/user';
 import {
 	Box,
+	Button,
 	CardContent,
 	Divider,
 	Grid,
@@ -11,11 +13,9 @@ import {
 } from '@mui/material';
 import { ROUTE_PATH } from '@shared/config/router/routes';
 import { getRelativeTime } from '@shared/lib/dayjs/get-relative-time/get-relative-time';
-import { DomLink } from '@shared/ui/dom-link/dom-link';
+import { invariant } from 'es-toolkit';
 import { type FC } from 'react';
-import { generatePath } from 'react-router-dom';
-
-// import { ServiceModal } from '../service-modal';
+import { generatePath, useNavigate, useParams } from 'react-router-dom';
 
 const StyledAccountCard = styled(Paper)(({ theme }) => ({
 	background: '#444e83',
@@ -39,7 +39,30 @@ type AccountCardProps = {
 };
 
 export const AccountCard: FC<AccountCardProps> = ({ account }) => {
-	const { comment, id, name, serviceId, updatedAt } = account;
+	const { serviceId } = useParams();
+
+	invariant(serviceId, 'serviceId is required');
+
+	const requireMasterKey = useRequireMasterKey();
+	const navigate = useNavigate();
+
+	const { comment, id, updatedAt, username } = account;
+
+	const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+		e.preventDefault();
+
+		try {
+			await requireMasterKey();
+			navigate(
+				generatePath(ROUTE_PATH.ACCOUNT_ID, {
+					accountId: id,
+					serviceId,
+				}),
+			);
+		} catch {
+			// do nothing
+		}
+	};
 
 	return (
 		<Grid size={{ md: 6, sm: 12, xs: 12 }} sx={{ height: 90 }}>
@@ -51,11 +74,19 @@ export const AccountCard: FC<AccountCardProps> = ({ account }) => {
 							minWidth: 0,
 						}}
 					>
-						<DomLink
-							to={generatePath(ROUTE_PATH.ACCOUNT_ID, {
-								accountId: id,
-								serviceId,
-							})}
+						<Button
+							variant='text'
+							href='#'
+							onClick={handleClick}
+							sx={{
+								'&:hover': {
+									textDecoration: 'underline',
+								},
+								color: 'info.main',
+
+								textDecoration: 'none',
+								maxWidth: '100%',
+							}}
 						>
 							<Typography
 								component='h2'
@@ -68,9 +99,9 @@ export const AccountCard: FC<AccountCardProps> = ({ account }) => {
 								textAlign={'center'}
 								variant='subtitle1'
 							>
-								{name}
+								{username}
 							</Typography>
-						</DomLink>
+						</Button>
 					</Box>
 
 					<Divider

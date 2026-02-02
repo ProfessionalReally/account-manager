@@ -1,36 +1,60 @@
 import { useGetServices } from '@entities/service';
-import { Paper, styled } from '@mui/material';
+import { Stack } from '@mui/material';
 import { ADD } from '@shared/config/form-actions/form-actions';
 import { FullscreenLoader } from '@shared/ui/fullscreen-loader';
 import { PaperListHeader } from '@shared/ui/paper-list-header';
 
+import { AppPagination } from '@shared/ui/app-pagination';
+import { PageLayout } from '@shared/ui/page-layout';
+import { useDialogs } from '@toolpad/core/useDialogs';
+import { useState } from 'react';
 import { ServiceList } from '../service-list';
 import { ServiceModal } from '../service-modal';
 
-const ContainerServices = styled(Paper)(({ theme }) => ({
-	backgroundColor: theme.palette.background.paper,
-	borderRadius: 16,
-	display: 'flex',
-	flex: 1,
-	flexDirection: 'column',
-	gap: theme.spacing(4),
-	padding: '20px 40px',
-}));
+const LIMIT = 10;
 
 export const ServicesLayout = () => {
-	const { data, isLoading } = useGetServices();
+	const dialogs = useDialogs();
+
+	const [page, setPage] = useState(1);
+
+	const { data, isLoading } = useGetServices({
+		page,
+		limit: LIMIT,
+	});
+
+	const onPageChange = (_: React.ChangeEvent<unknown>, page: number) => {
+		setPage(page);
+	};
+
+	const onButtonClick = () => {
+		dialogs.open(ServiceModal, { action: ADD });
+	};
 
 	return (
-		<ContainerServices>
+		<PageLayout>
 			<PaperListHeader
 				buttonChildren={'Add New Service'}
 				count={data?.data?.pagination.total}
-				modal={ServiceModal}
-				payload={{ action: ADD }}
+				onButtonClick={onButtonClick}
 				text='Your Services'
 			/>
 			{isLoading && <FullscreenLoader />}
-			{data?.data && <ServiceList services={data.data?.data} />}
-		</ContainerServices>
+			{data?.data && (
+				<>
+					<ServiceList services={data.data?.data} />
+					<Stack alignItems='center'>
+						<AppPagination
+							count={data.data.pagination.lastPage}
+							page={page}
+							onChange={onPageChange}
+							showFirstButton
+							showLastButton
+							size='large'
+						/>
+					</Stack>
+				</>
+			)}
+		</PageLayout>
 	);
 };

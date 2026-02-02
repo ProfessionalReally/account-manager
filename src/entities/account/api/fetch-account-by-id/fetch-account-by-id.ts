@@ -1,13 +1,9 @@
+import { api } from '@shared/api/axios';
+import type { ApiResponse } from '@shared/api/types';
 import type { Account } from '@shared/lib/types/account';
 
-import axios from 'axios';
-
-const baseUrlServer = import.meta.env.VITE_BASE_URL_SERVER;
-
 export const fetchAccountById = async (id: string) => {
-	const { data } = await axios.get<Account[]>(`${baseUrlServer}/account`, {
-		params: { id },
-	});
+	const { data } = await api.get<ApiResponse<Account>>(`/accounts/${id}`);
 
 	return data;
 };

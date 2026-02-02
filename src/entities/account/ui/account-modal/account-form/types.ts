@@ -1,3 +1,5 @@
 import type { Account } from '@shared/lib/types/account';
 
-export type AccountFormData = Omit<Account, 'id' | 'serviceId' | 'updatedAt'>;
+export type AccountFormData = Pick<Account, 'comment' | 'username'> & {
+	password: string;
+};

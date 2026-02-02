@@ -2,7 +2,6 @@ import type React from 'react';
 
 import { Box, Button, styled, Typography } from '@mui/material';
 import { InlineBadge } from '@shared/ui/inline-badge';
-import { useDialogs } from '@toolpad/core/useDialogs';
 
 const Header = styled(Box)({
 	alignItems: 'center',
@@ -19,20 +18,16 @@ const TitleBox = styled(Box)({
 type PaperListHeaderProps = {
 	buttonChildren: React.ReactNode;
 	count?: number;
-	modal: React.ComponentType<any>;
-	payload?: any;
+	onButtonClick?: () => void;
 	text: string;
 };
 
 export const PaperListHeader: React.FC<PaperListHeaderProps> = ({
 	buttonChildren,
 	count,
-	modal,
-	payload,
+	onButtonClick,
 	text,
 }) => {
-	const dialog = useDialogs();
-
 	return (
 		<Header>
 			<TitleBox>
@@ -50,7 +45,7 @@ export const PaperListHeader: React.FC<PaperListHeaderProps> = ({
 			<Button
 				aria-label='add'
 				color='info'
-				onClick={() => dialog.open(modal, { ...payload })}
+				onClick={onButtonClick}
 				size='medium'
 				variant='contained'
 			>

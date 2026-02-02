@@ -1,4 +1,4 @@
-import { useCurrentUser } from '@entities/auth';
+import { useCurrentUser } from '@entities/user';
 import { ROUTE_PATH } from '@shared/config/router/routes';
 import { FullscreenLoader } from '@shared/ui/fullscreen-loader';
 import { Navigate } from 'react-router-dom';
