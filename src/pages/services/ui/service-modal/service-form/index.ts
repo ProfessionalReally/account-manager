@@ -1,1 +1,1 @@
-export * from './service-form-container';
+export { ServiceFormContainer } from './service-form-container';

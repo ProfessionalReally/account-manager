@@ -29,13 +29,10 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 		formState: { errors, isSubmitting },
 		handleSubmit,
 		register,
-		getValues,
 	} = useForm<FormData>({
 		defaultValues,
 		resolver: zodResolver(serviceValidationSchema),
 	});
-
-	console.log(getValues());
 
 	const categoryOptions = useGetCategoryOptions();
 
@@ -43,8 +40,6 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 		categoryOptions.data || categoryOptions.isLoading,
 		'Category options is not loaded',
 	);
-
-	console.log(categoryOptions);
 
 	return (
 		<form
@@ -114,7 +109,6 @@ export const ServiceForm = ({ data }: { data?: Service }) => {
 				helperText={errors.description?.message}
 				rows={4}
 			/>
-
 			<Stack
 				direction={'row'}
 				gap={2}

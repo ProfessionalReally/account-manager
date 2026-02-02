@@ -1,1 +1,1 @@
-export * from './service-modal';
+export { ServiceModal } from './service-modal';

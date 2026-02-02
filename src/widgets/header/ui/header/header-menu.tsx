@@ -1,4 +1,4 @@
-import { useCurrentUser } from '@entities/auth';
+import { useCurrentUser } from '@entities/user';
 import { Box, styled, Typography } from '@mui/material';
 import { useMemo } from 'react';
 import { HeaderAuthorized } from './header-authorized';

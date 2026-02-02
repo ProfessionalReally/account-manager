@@ -66,7 +66,7 @@ type ServiceCardProps = {
 export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 	const { description, icon, id, name, updatedAt } = service;
 
-	const dialog = useDialogs();
+	const dialogs = useDialogs();
 
 	const deleteService = useDeleteService();
 
@@ -115,7 +115,7 @@ export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 						<StyledLinkMUI
 							href={service.url}
 							rel='noopener noreferrer'
-							sx={{ display: 'inline-block' }}
+							sx={{ display: 'flex', alignItems: 'center' }}
 							target='_blank'
 							underline='hover'
 						>
@@ -149,14 +149,14 @@ export const ServiceCard: FC<ServiceCardProps> = ({ color, service }) => {
 				<ActionsContainer>
 					<IconButton
 						onClick={() =>
-							dialog.open(ServiceModal, { action: EDIT, id })
+							dialogs.open(ServiceModal, { action: EDIT, id })
 						}
 					>
 						<StyledModeEditIcon />
 					</IconButton>
 					<IconButton
 						onClick={async () => {
-							dialog.open(AppDialog, {
+							dialogs.open(AppDialog, {
 								body: 'Are you sure you want to delete this service?',
 								header: 'Delete service',
 								onClickYes: onDelete,

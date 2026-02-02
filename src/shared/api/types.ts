@@ -23,3 +23,5 @@ type PaginatedData<T> = {
 };
 
 export type PaginatedApiResponse<T> = ApiResponse<PaginatedData<T>>;
+
+export type PaginationParams = Pick<Pagination, 'page' | 'limit'>;
